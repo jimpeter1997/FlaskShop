@@ -1,29 +1,9 @@
-"""
-单一文件下的情况，我们的目标是把单一的文件拆分成一个项目文件夹
-tips：   如果你启动这个文件报错，
-         注意您的电脑是否安装了mysql和redis
-         是否创建了ishop这个名字的数据库
-"""
-from flask import Flask
-# 处理数据库
-from flask_sqlalchemy import SQLAlchemy
-# 处理session（flask默认的session，是保存在cookie中的）
-from flask_session import Session
-# 开启csrf保护，避免跨域攻击
-from flask_wtf import CSRFProtect
-# 与redis交互
 import redis
 
-
-# 创建Flask的实例
-app = Flask(__name__)
 
 # 创建配置对象
 class Config(object):
     """配置信息"""
-    # 开启调试模式
-    DEBUG = True
-    # csrf保护需要、session需要
     SECRET_KEY = 'Github12345!@#$'
 
     # mysql数据库
@@ -59,26 +39,16 @@ class Config(object):
     SESSION_REDIS = redis.StrictRedis(host=REDIS_SESSION_HOST, port=REDIS_SESSION_PORT, db=REDIS_SESSION_DB)  # 用于连接redis的配置
 
 
-# 把配置对象放入app中
-app.config.from_object(Config)
+class DevelopmentConfig(Config):
+    """开发模式的配置信息"""
+    DEBUG = True
 
-# 用app对象创建数据对象db
-db = SQLAlchemy(app)
 
-# 创建redis连接对象,这个redis用于保存静态页面
-redis_store = redis.StrictRedis(host=Config.REDIS_STATIC_HOST, port=Config.REDIS_STATIC_PORT, db=Config.REDIS_STATIC_DB)
+class ProductionConfig(Config):
+    """生成环境配置信息"""
+    pass
 
-# 利用flask-session，将session数据保存到redis中，配置在配置类中
-Session(app)
-
-# 为flask开启csrf防护
-CSRFProtect(app)
-
-# 视图函数
-@app.route("/", methods=['GET', 'POST'])
-def index():
-    return "Hello Flask"
-
-# 启动入口
-if __name__ == '__main__':
-    app.run()
+config_map = {
+    "develop": DevelopmentConfig,
+    "product": ProductionConfig
+}
