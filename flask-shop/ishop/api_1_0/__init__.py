@@ -5,4 +5,4 @@ from flask import Blueprint
 api = Blueprint("api_1_0", __name__)
 
 # 导入蓝图的视图函数
-from . import demo
+from . import demo, verify_code
