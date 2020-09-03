@@ -60,13 +60,22 @@ def get_sms_codes(mobile):
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(resCode='1', message="数据库异常")
-    else:
-        # 2.2 由于存在redis过期，或者本身uuid就是错误的，所以可能取到的数据是None
-        if real_image_code == None:
-            return jsonify(resCode='1', message="参数无效")
-        # 2.3 对比数据库中的图片验证码和用户发送过来的图片验证码
-        if real_image_code.lower() != image_code.lower():
-            return jsonify(resCode='1', message="图片验证码错误")
+
+    # 2.2 由于存在redis过期，或者本身uuid就是错误的，所以可能取到的数据是None
+    if real_image_code is None:
+        return jsonify(resCode='1', message="参数无效")
+    # 2.2.1
+    # Q:为什么要删除这个图片验证码信息？ 防止多次验证，撞库确定数据库中哪些手机号码已经被注册
+    # Q：为什么是在这个位置删除？ 因为下一步就开始与数据库中的信息对比了，这是一个合理的最前面的位置
+    # Q：为什么上面判断已经肯定存在了还是要用try？ 因为时间会过期（这个概率很小），还有就是网络链接你永远无法确定100%能链接成功
+    try:
+        redis_store.delete("image_code_{}".format(image_uuid))
+    except Exception as e:
+        current_app.logger.error(e)
+    # 2.3 对比数据库中的图片验证码和用户发送过来的图片验证码
+    if real_image_code.lower() != image_code.lower():
+        return jsonify(resCode='1', message="图片验证码错误")
+
     # 2.4 判断手机号码是否已经存在
     try:
         user = UsersModel.query.filter_by(mobile=mobile).first()
@@ -86,6 +95,7 @@ def get_sms_codes(mobile):
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(resCode='1', message="数据库保存短信验证码错误")
+
     # 3.3 正式发送短信验证码
     try:
         ccp = CCP()
