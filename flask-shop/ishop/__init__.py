@@ -7,6 +7,7 @@ from logging.handlers import  RotatingFileHandler
 from flask_session import Session
 from flask_wtf import CSRFProtect
 import pymysql
+from .utils.commonstools import ReConverter
 
 
 
@@ -63,6 +64,7 @@ def create_app(config_name):
     CSRFProtect(app)
     # 为什么在这个地方导入api_1_0？？？ 解决循环导入的问题。
     from ishop import api_1_0
+    app.url_map.converters["re"] = ReConverter  # 将自定义的转换器注册到flask中
     # 注册蓝图
     app.register_blueprint(api_1_0.api,url_prefix="/api/v1.0")
     pymysql.install_as_MySQLdb()

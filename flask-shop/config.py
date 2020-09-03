@@ -3,6 +3,7 @@ import redis
 
 # 创建配置对象
 class Config(object):
+    JSON_AS_ASCII = False
     """配置信息"""
     SECRET_KEY = 'Github12345!@#$'
 

@@ -416,3 +416,576 @@ INFO _internal.py:113 127.0.0.1 - - [31/Aug/2020 13:18:29] "[37mGET /api/v1.0/i
 INFO _internal.py:113 127.0.0.1 - - [31/Aug/2020 13:18:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 INFO _internal.py:113 127.0.0.1 - - [31/Aug/2020 13:18:30] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
 INFO _internal.py:113 127.0.0.1 - - [31/Aug/2020 13:18:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:06:55] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:06:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:35] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:37] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:38] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:40] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:41] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:42] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:43] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:44] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:45] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:46] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:47] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:48] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:49] "[37mGET /api/v1.0/image_codes/123123 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 03:21:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:18:09] "[33mGET /api/v1.0/api/v1.0/56e989a6-f1ca-41fc-9fd2-69f016136a0c HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:18:20] "[33mGET /api/v1.0/api/v1.0/2e093138-0cad-41a8-a45b-e91a08a4285a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:18:27] "[33mGET /api/v1.0/api/v1.0/2e093138-0cad-41a8-a45b-e91a08a4285a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:18:33] "[33mGET /api/v1.0/api/v1.0/2e093138-0cad-41a8-a45b-e91a08a4285a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:19:49] "[33mGET /api/v1.0/2e093138-0cad-41a8-a45b-e91a08a4285a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:19:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:20:03] "[33mGET /api/v1.0/2e093138-0cad-41a8-a45b-e91a08a4285a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:20:13] "[33mGET /api/v1.0/2e093138-0cad-41a8-a45b-e91a08a4285a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:20:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:22:09] "[33mGET /api/v1.0/api/v1.0/image_codes/0124c595-4daa-4cba-9c33-36c0f222d86b HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:22:15] "[33mGET /api/v1.0/api/v1.0/image_codes/6dc10131-46e7-48cb-b91c-48ecc584ecee HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:22:22] "[33mGET /api/v1.0/api/v1.0/image_codes/dfd5bf8a-6b11-418e-a896-ce17b505b676 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:22:35] "[33mGET /api/v1.0/api/v1.0/image_codes/dfd5bf8a-6b11-418e-a896-ce17b505b676 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:22:49] "[37mGET /api/v1.0/image_codes/dfd5bf8a-6b11-418e-a896-ce17b505b676 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:22:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:25:00] "[33mGET /api/v1.0/api/v1.0/image_codes/5ee994f4-2006-40b4-b1ab-080c3008c7e6 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:26:46] "[37mGET /api/v1.0/image_codes/d242943d-7a07-4ea1-be04-6d2567269a43 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:26:58] "[37mGET /api/v1.0/image_codes/d8c2f164-e016-4af5-bb68-59a29e081219 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:27:07] "[37mGET /api/v1.0/image_codes/d8c2f164-e016-4af5-bb68-59a29e081219 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:27:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:29:30] "[37mGET /api/v1.0/image_codes/576fa79e-ed97-4b77-9155-3efc5c570a66 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:30:19] "[33mGET /api/v1.0/api/v1.0/image_codes/13a7dd37-2bc1-4632-b4f2-1301f1241bf5 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:30:23] "[33mGET /api/v1.0/api/v1.0/image_codes/dccf209a-c8a8-4fb2-a403-3cf603727878 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:33:32] "[33mGET /api/v1.0/api/v1.0/image_codes/f113eb5a-efa5-40a3-85e7-88abb38edfff HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:34:51] "[33mGET /api/v1.0/api/v1.0/image_codes/55bf8b9f-1e53-4cf7-afef-e21c2fe783c2 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:38:49] "[33mGET /v1.0/image_codes/78d3b081-0574-4072-a57e-7d637129d4d3 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:40:28] "[33mGET /v1.0/image_codes/4970dd2a-acfe-4f64-9f08-e0863462f57d HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:42:33] "[33mGET /v1.0/image_codes/fafcd1eb-294d-43e1-9771-b316cec125e7 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:42:40] "[33mGET /v1.0/image_codes/60a668ef-ed20-4cce-a04c-10a13928bad8 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:42:49] "[33mGET /v1.0/image_codes/d6596eec-5ba6-4e61-bed5-55d97ed8178a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:42:55] "[33mGET /v1.0/image_codes/3014b789-3375-4fb9-b18b-d6b0ec3895fb HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:44:52] "[37mGET /api/v1.0/image_codes/750f2efa-8300-4a0b-9dea-f13cd47cb1c2 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:44:59] "[37mGET /api/v1.0/image_codes/9421b6d3-6528-4e97-b782-d5a3f9df9370 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:48:47] "[37mGET /api/v1.0/image_codes/6fec40db-6465-4654-9fd1-97ff603255bb HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:49:29] "[33mGET /v1.0/image_codes/96c021d9-aceb-402e-ac7f-8a6286bae0e9 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 09:49:36] "[33mGET /v1.0/image_codes/53e859e1-0be6-4e4c-903e-44d738488e84 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:05:28] "[33mGET /v1.0/image_codes/2f7a0477-e93c-4e71-b110-45be32e36eb7 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:08:28] "[33mGET /v1.0/image_codes/77bc6610-cfcb-4f9e-bc5c-a94ad24df772 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:08:34] "[33mGET /v1.0/image_codes/5ed79bcc-ceea-4f9f-9ce7-aea04d9548d9 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:09:57] "[33mGET /image_codes/bbf487b2-5056-41ba-bc58-9124df2dbca0 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:10:05] "[33mGET /image_codes/728b3861-10a5-4846-b9fb-53a8f75d04e0 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:11:00] "[33mGET /image_codes/addd42c6-0aa0-423e-9bc1-82f847fca0a8 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:13:52] "[33mGET /image_codes/63e9abbe-b032-45e6-a8d8-23dfa74b3d4d HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:14:00] "[33mGET /image_codes/63e9abbe-b032-45e6-a8d8-23dfa74b3d4d HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:14:30] "[33mGET /image_codes/afe16e35-5862-4b04-9359-21bfee9eaaa8 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:14:49] "[33mGET /v1.0/image_codes/108344e7-0a84-4478-b3bb-f487d08e3923 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:15:14] "[33mGET /v1.0/image_codes/2c9e278a-d263-4bd8-8aff-64cf349b73ce HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:15:58] "[33mGET /image_codes/34a4c949-6502-4945-bb28-dccb96f48277 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:16:05] "[33mGET /image_codes/dc82df47-c205-4d88-b97f-cab9ae5f0255 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:16:42] "[33mGET /image_codes/0c122fc4-bfca-4b93-982a-5372a0e8bac8 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:17:37] "[33mGET /image_codes/aa7940f1-304e-4bb1-b594-84491975e809 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:18:31] "[33mGET /image_codes/7f01c863-8070-4777-9f00-eaf38934165b HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:24:22] "[33mGET /image_codes/c8d97aca-1d1a-4878-8db8-95961b26527f HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:25:00] "[33mGET /image_codes/c8d97aca-1d1a-4878-8db8-95961b26527f HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:26:08] "[33mGET /image_codes/6f0decfb-ccd4-4b02-a5bd-6ddee4b82e7b HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:26:23] "[33mGET /image_codes/1b7f7d27-a99b-4c38-ad28-0315658dd10d HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:27:08] "[33mGET /v1.0/image_codes/7965f309-a30a-485f-9e32-ecb58266aceb HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:27:08] "[33mGET /v1.0/image_codes/c3776f61-a6be-4122-aa77-50ed5e659288 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:27:20] "[33mGET /v1.0/image_codes/7f01d422-9867-4835-b938-1db310726084 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:28:15] "[33mGET /v1.0/image_codes/9e1496a0-bb36-4696-a5b2-88033af49921 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:28:25] "[33mGET /v1.0/image_codes/540b9aed-d405-44b2-b610-8e4f52b446e7 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:34:00] "[33mGET /image_codes/5e37e7a7-70ff-40b8-86b4-fc6e57f249ea HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:34:45] "[33mGET /image_codes/a5348b15-473d-48b9-b51b-6d7e5d764785 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:35:37] "[33mGET /v1.0/image_codes/7a224999-6727-4708-b676-bf2714120287 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:35:52] "[33mGET /image_codes/19b52cd2-531e-4ce3-b8c4-dd7be37a342e HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:36:10] "[33mGET /image_codes/19b52cd2-531e-4ce3-b8c4-dd7be37a342e HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:36:23] "[37mGET /api/v1.0/image_codes/19b52cd2-531e-4ce3-b8c4-dd7be37a342e HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:36:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/demo.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:43:01] "[32mGET /api/v1.0 HTTP/1.1[0m" 308 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:43:01] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:43:33] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:43:39] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:45:00] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:45:05] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:45:20] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:45:36] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:45:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:46:58] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:47:18] "[33mGET /v1.0 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:47:21] "[33mGET /v1.0 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:51:06] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:51:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:55:34] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:55:56] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:56:49] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 10:56:55] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:00:10] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:00:46] "[33mGET /api/v1.0/9fcda2e7-2735-4c4a-b909-f6060b13f915 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:00:56] "[33mGET /api/v1.0/fc5972ef-aa3c-4e58-a8ba-1234f87f477a HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:01:36] "[33mGET /api/v1.0/d87ba978-a2b0-4874-b129-c0b79489ace7 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:01:42] "[33mGET /api/v1.0/58442c73-3b92-4867-af66-1d7b3cdf89df HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:01:48] "[33mGET /api/v1.0/f2047599-ddeb-4230-8d6a-0523bc059e91 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:02:00] "[33mGET /api/v1.0/89473145-6020-46ae-a2a6-feebf466f600 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:02:13] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:02:17] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:03:15] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/demo.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/demo.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:08:08] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:11:19] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:13:08] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:13:09] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:13:14] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:13:49] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:13:55] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:13:55] "[33mGET /api/v1.0/de500e2a-d4a9-41a6-8099-b2d27dfea790 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:14:33] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:14:33] "[33mGET /api/v1.0/e8486d9d-0ffa-4419-89e8-a558ea799e9e HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:15:14] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:15:14] "[33mGET /api/v1.0/a482b196-570e-4bb3-b022-f2614c2a4bff HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:15:33] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:15:38] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:16:58] "[33mGET /api/v1.0/552964d3-9660-4b3d-b09a-26082195c6d8 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:17:08] "[33mGET /api/v1.0/f5d1e0b8-6778-4531-ac41-c8e141620ef9 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:17:08] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:17:39] "[33mGET /api/v1.0/f5d1e0b8-6778-4531-ac41-c8e141620ef9 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:17:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:25] "[37mGET /api/v1.0/image_codes/f5d1e0b8-6778-4531-ac41-c8e141620ef9 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:31] "[37mGET /api/v1.0/image_codes/5ea40e21-200b-46bb-8756-296b79a07fb3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:31] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:32] "[37mGET /api/v1.0/image_codes/d10acef1-c58b-40ae-8085-fda8f98e314b HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:32] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:33] "[37mGET /api/v1.0/image_codes/9b3863aa-8799-42fe-b518-553229613fe3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:18:33] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:20:31] "[37mGET /api/v1.0/image_codes/c026c2fd-1ce7-4923-a57b-76280eeeedde HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:20:31] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:20:32] "[37mGET /api/v1.0/image_codes/1ee91b22-72c0-4b79-9cfa-3873ff7fa265 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:20:32] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:24:43] "[37mGET /api/v1.0/image_codes/a4fe51f7-ba14-4499-a037-134b8b777bfc HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:24:43] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:24:53] "[37mGET /api/v1.0/image_codes/26f129f9-32ba-49d2-be99-dc7edd96fb38 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:24:53] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:26:16] "[37mGET /api/v1.0/image_codes/9a7d20b2-e39a-497d-85f1-1931278f365d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:26:16] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:19] "[37mGET /api/v1.0/image_codes/7d89a8ba-9cec-4f50-9628-18da96073549 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:19] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:24] "[37mGET /api/v1.0/image_codes/3626ba9c-6687-4dea-bc68-11c078980084 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:24] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:42] "[37mGET /api/v1.0/image_codes/90ffa66e-6a6d-44f7-9f44-adcf77063270 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:42] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:47] "[37mGET /api/v1.0/image_codes/93017d6c-9ee4-4cc9-a9a4-601b812b8357 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:47] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:49] "[37mGET /api/v1.0/image_codes/b1c9baf6-6f6f-4ca7-8f78-a5e4cc3ded15 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:50] "[37mGET /api/v1.0/image_codes/5aa1e62d-1cc6-4503-99e4-211720e7bcb3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:51] "[37mGET /api/v1.0/image_codes/a712ffb5-1159-4446-9c7d-cacc0faf6d02 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:52] "[37mGET /api/v1.0/image_codes/120d2764-dc6e-4408-8c2a-6b29549c6b88 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:27:53] "[37mGET /api/v1.0/image_codes/9633558c-985b-4ecc-b79a-5aa1920b1cc3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:28:58] "[37mGET /api/v1.0/image_codes/ee071953-3370-4948-9697-0c240a9de6f3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:28:59] "[37mGET /api/v1.0/image_codes/716d8629-75cd-4dbf-8d7f-e3221a527f02 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:29:00] "[37mGET /api/v1.0/image_codes/b13d250c-64af-46a6-acbc-97c0cb4c2ea9 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:29:01] "[37mGET /api/v1.0/image_codes/e3a13929-5a86-4852-8791-16be5dd899bf HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:29:02] "[37mGET /api/v1.0/image_codes/36dc0806-0444-4775-9d9d-25b103394766 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:43:18] "[37mGET /api/v1.0/image_codes/7e65016e-9db9-4f90-a96e-3b065912a951 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:43:22] "[37mGET /api/v1.0/image_codes/e60f003a-838a-4afe-b55c-25d54c893b2a HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:43:25] "[37mGET /api/v1.0/image_codes/fa456602-81ce-40ea-83c5-557982140700 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:52:18] "[37mGET /api/v1.0/image_codes/99348f2c-eb6f-42bb-be6c-be082fda8748 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:52:19] "[37mGET /api/v1.0/image_codes/9f370d2d-f0bb-4f3c-8c07-27ee936ff4a0 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 11:52:20] "[37mGET /api/v1.0/image_codes/75a29c5e-780f-4e33-be2e-143ba31344c3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 21:14:06] "[37mGET /api/v1.0/image_codes/219e6a36-6ece-4c2b-b9ba-d57d0a501013 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 21:14:06] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 21:14:56] "[37mGET /api/v1.0/image_codes/761c4430-3666-49f2-b645-983ddf17ee59 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 21:14:56] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 21:14:59] "[37mGET /api/v1.0/image_codes/96ad5080-451c-4068-a020-433a0d3c40f3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 21:15:00] "[37mGET /api/v1.0/image_codes/6f3874d4-b50f-4716-9bd8-70a300cfac7d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:27:46] "[37mGET /api/v1.0/image_codes/5e477eee-1f95-481e-9434-a7f8f2a378da HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:27:46] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:43:37] "[37mGET /api/v1.0/image_codes/fb2fbfae-e01f-4369-bffe-5d21c15846e1 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:43:41] "[37mGET /api/v1.0/image_codes/7384d675-5377-49e2-b31b-8cfaa68a96b8 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:08] "[37mGET /api/v1.0/image_codes/08e5b015-eab9-43a3-96dd-7d46f010018d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:10] "[37mGET /api/v1.0/image_codes/556a4627-0509-4253-a4f0-a2ef9695dcb7 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:11] "[37mGET /api/v1.0/image_codes/25e59f79-b7a0-49f8-9b43-1e4e90418379 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:12] "[37mGET /api/v1.0/image_codes/7d1ae642-5075-4c28-b5a7-f7e8ce1f8530 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:13] "[37mGET /api/v1.0/image_codes/283939a9-20ca-4e3d-a729-09096953d5e0 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:14] "[37mGET /api/v1.0/image_codes/45d55ddc-7d45-4668-9e8b-6f6843eb939e HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [01/Sep/2020 22:47:15] "[37mGET /api/v1.0/image_codes/9c0f9739-04b2-4545-9007-564f16e53dfb HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:25] "[37mGET /api/v1.0/image_codes/e6699b12-0b56-41b8-b2e2-b97f0549bae3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:26] "[37mGET /api/v1.0/image_codes/4c214abc-69a1-4f8a-ab8c-73c0cb4ce921 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:27] "[37mGET /api/v1.0/image_codes/87e0be72-7868-429c-8bba-026acb32a72b HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:28] "[37mGET /api/v1.0/image_codes/96d97553-87e6-48bd-89fd-603a0838799e HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:30] "[37mGET /api/v1.0/image_codes/6a0a773b-219c-47ab-8643-f01f160f8da6 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:31] "[37mGET /api/v1.0/image_codes/db967625-161f-4fc5-be72-d7b22d8fe4d9 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 02:14:32] "[37mGET /api/v1.0/image_codes/0a65b468-05e5-4a17-9f06-e878bc639190 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:01] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:18] "[37mGET /api/v1.0/image_codes/63179ea5-f1a4-4016-99c1-6206e970ce6b HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:18] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:26] "[37mGET /api/v1.0/image_codes/81604d66-8fac-4234-8412-fae707a093cf HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:26] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:31] "[37mGET /api/v1.0/image_codes/e74541ba-4c83-4932-be53-6427bdf75807 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:31] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:33] "[37mGET /api/v1.0/image_codes/fd00ff7d-02e1-4c1d-a5f4-9ebd1ddca82d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:28:35] "[37mGET /api/v1.0/image_codes/0c3c99b0-d5ee-485f-9f7f-3c26eb556e2c HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:02] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:06] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:13] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:25] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:29] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:55] "[37mGET /api/v1.0/image_codes/04a1527d-0ccb-461b-880b-792feb6d5c04 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:29:55] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:30:00] "[37mGET /api/v1.0/image_codes/81ffe295-b1f4-43af-ac37-c1fe5309f819 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:30:00] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 04:30:11] "[37mGET /api/v1.0/image_codes/6b055196-f18d-4682-aadb-f9e534e5da9e HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 12:35:26] "[37mGET /api/v1.0/image_codes/463580dd-862b-4d01-a8a1-5dbc18165f64 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 12:35:28] "[37mGET /api/v1.0/image_codes/5be0fe00-9b02-4664-873c-30557e1a2f2e HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 15:01:24] "[37mGET /api/v1.0/image_codes/644b898c-98be-4b3a-bc62-f1b2a740c8f2 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 18:51:28] "[37mGET /api/v1.0/image_codes/722703fa-a7d0-4cae-a202-3af37aba4416 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 18:51:30] "[37mGET /api/v1.0/image_codes/cc44bde4-3199-4d15-9164-89a260c90440 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 20:51:27] "[37mGET /api/v1.0/image_codes/6ee25e44-6577-4d01-9407-13d288aab371 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 20:51:29] "[37mGET /api/v1.0/image_codes/f677ea2b-a12c-48f9-8601-175cbcde48a2 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 20:51:30] "[37mGET /api/v1.0/image_codes/47759625-bf7f-4d69-b650-7e58308fa63d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:17:48] "[37mGET /api/v1.0/image_codes/084f7d26-e541-4d8e-b818-56ff4f2ebad1 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:17:48] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:18:38] "[37mGET /api/v1.0/image_codes/undefined HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:18:38] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:19:22] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:20:07] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:20:43] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:20:49] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:20:56] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:21:02] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:21:09] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:21:17] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:32:32] "[37mGET /api/v1.0/image_codes/33dd56b5-d0af-4940-ae25-683416a832f1 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:32:32] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:28] "[37mGET /api/v1.0/image_codes/eabfe506-57e8-4612-9afe-3224615dcde7 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:28] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:47] "[37mGET /api/v1.0/image_codes/d8fbe8b5-4e02-4181-b9f7-0546be9a6e18 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:47] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:55] "[37mGET /api/v1.0/image_codes/93a03029-eefe-481e-8a0b-157f4f8e435f HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:55] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:59] "[37mGET /api/v1.0/image_codes/bd5b91c5-8a8b-408e-a823-096b2a9071c4 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:33:59] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:34:15] "[37mGET /api/v1.0/image_codes/391f7244-e854-4d40-b5a9-543636918ec8 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:34:15] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:34:21] "[37mGET /api/v1.0/image_codes/b18d65d2-42e1-4e03-a639-4ca154914430 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:34:21] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:34:26] "[37mGET /api/v1.0/image_codes/d49fd75b-c069-4479-99bd-134be4c18fba HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:34:26] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:35:41] "[37mGET /api/v1.0/image_codes/45cd2328-d073-43f2-8bbc-9b2445c7d905 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:35:41] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:36:39] "[37mGET /api/v1.0/image_codes/edef6747-85b5-4b7a-922d-b35adf399ed6 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:36:39] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:36:57] "[37mGET /api/v1.0/image_codes/d4c57035-6b32-49d0-b985-610f59332338 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:36:57] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:37:33] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:37:43] "[37mGET /api/v1.0/image_codes/undefined HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:37:43] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:37:47] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:38:01] "[37mGET /api/v1.0/image_codes/21da8792-4cf1-45b2-b2f9-ba88e8d6822a HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:38:10] "[37mGET /api/v1.0/image_codes/a80e7c21-03ff-4512-ac83-604f93cb1a07 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:38:10] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:38:13] "[37mGET /api/v1.0/image_codes/6e3175b0-8516-42a7-ba5e-4f5c64a07e3b HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:38:14] "[37mGET /api/v1.0/image_codes/b9bb23fe-be3d-4106-bba6-088edf5d3962 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:45:41] "[37mGET /api/v1.0/image_codes/d8ce2eb5-36a1-4d5f-831d-48d10b1402f9 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:45:41] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:46:05] "[37mGET /api/v1.0/image_codes/67f3169e-5d34-4ccb-88b9-8d38f536dd5a HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:46:05] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:46:46] "[37mGET /api/v1.0/image_codes/f2f48b44-73aa-440d-8966-4b275911715d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:46:46] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:47:38] "[37mGET /api/v1.0/image_codes/4ccaa7c1-0211-437b-9bc1-848ce8eaff51 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:47:38] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:47:43] "[37mGET /api/v1.0/image_codes/0c519da3-ab95-4c2b-84cf-cd597636691c HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:47:43] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:47:50] "[37mGET /api/v1.0/image_codes/aab9680f-fccc-4687-bec3-bb576af0233f HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:47:50] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:51:03] "[37mGET /api/v1.0/image_codes/33f6fa36-d4ff-4a03-8870-5e46b30a6ee6 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:51:03] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:51:22] "[37mGET /api/v1.0/image_codes/c6840e0d-210c-41f5-964a-b167a571a659 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:51:22] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:52:24] "[37mGET /api/v1.0/image_codes/428a4674-3084-4fdb-999f-243981b8e0b9 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:52:24] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:53:38] "[37mGET /api/v1.0/image_codes/25935954-fdaf-4058-9356-fc4a49b6f297 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 22:53:38] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:02:25] "[37mGET /api/v1.0/image_codes/c5c7c922-dd0f-4c8d-a892-d8c858888f8d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:02:25] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:02] "[37mGET /api/v1.0/image_codes/1d781280-e8fd-44c2-b32b-eb62612dedcf HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:02] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:08] "[37mGET /api/v1.0/image_codes/f9f0064c-9332-46e1-9836-71d19f5db1b4 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:08] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:27] "[37mGET /api/v1.0/image_codes/69d7f23c-8de5-4ac7-acca-24d66951f5de HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:27] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:31] "[37mGET /api/v1.0/image_codes/3b1ab133-47dc-4ee0-ad81-dd25e792eb46 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:31] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:59] "[37mGET /api/v1.0/image_codes/8b4418ee-8b35-47d7-876f-87a674360778 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:03:59] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:04:32] "[37mGET /api/v1.0/image_codes/11c354df-ca5f-4346-aab8-88df53ca3148 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:04:32] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:04:42] "[37mGET /api/v1.0/image_codes/97c07985-6e3a-464f-b7a4-d0c66caa4cdf HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:04:42] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:07:02] "[37mGET /api/v1.0/image_codes/497fca09-3566-496e-a6a7-8c1946417395 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:07:04] "[37mGET /api/v1.0/image_codes/16c39510-241b-4e19-93eb-3d503a5c5ff5 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:07:06] "[37mGET /api/v1.0/image_codes/43eaa685-68e5-4d6f-827f-191138f7aeda HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:07:07] "[37mGET /api/v1.0/image_codes/0cdf2051-b4d1-42f2-8524-cc293245b146 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:07:35] "[37mGET /api/v1.0/image_codes/0908fe1b-7989-46cb-be04-10e94231e422 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:07:35] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:09:35] "[37mGET /api/v1.0/image_codes/c143d6e4-bf74-4d2e-bccb-bb79464b1c19 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:09:35] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:09:42] "[37mGET /api/v1.0/image_codes/95795e04-aba2-4fbb-bfc5-0543bf2161fe HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:09:42] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:11:09] "[37mGET /api/v1.0/image_codes/064c08cd-e861-4ab2-9916-7596505a31b5 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:11:09] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:11:24] "[37mGET /api/v1.0/image_codes/a506142c-ec67-4589-a87c-73b8992e1a20 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:11:24] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:11:28] "[37mGET /api/v1.0/image_codes/1b6e8cb1-f090-47b2-8b88-7823b8ea18da HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:11:28] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:12:30] "[37mGET /api/v1.0/image_codes/b349bac1-e75d-4e41-82f0-8c6ecd6fd899 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:12:30] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:03] "[37mGET /api/v1.0/image_codes/ba2d890a-012f-42db-9b22-5c357e39497a HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:03] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:17] "[37mGET /api/v1.0/image_codes/29dad6bc-328c-44ce-a1a3-1f487625d8ee HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:17] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:20] "[37mGET /api/v1.0/image_codes/cca1c62d-df87-4bf4-b669-6a437135acce HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:20] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:28] "[37mGET /api/v1.0/image_codes/36abbde6-87de-417f-b04f-3570c84f3e5c HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:14:28] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:17:57] "[37mGET /api/v1.0/image_codes/235e9277-21b3-41e5-abe3-412bc69c77cd HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:17:57] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:19:52] "[37mGET /api/v1.0/image_codes/ca0ffaba-7eeb-4cae-9c7b-b0889e3cc0cb HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:19:52] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:07] "[37mGET /api/v1.0/image_codes/c7bdc52f-d3e9-4a01-9738-70ad4cd1b7b8 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:07] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:18] "[37mGET /api/v1.0/image_codes/ad97e498-e17a-4b49-a6df-350c900a2b9f HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:18] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:21] "[37mGET /api/v1.0/image_codes/5c283728-9b3f-4ba1-8df5-bea861fb97f3 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:21] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:51] "[37mGET /api/v1.0/image_codes/79f868d1-4f2c-419f-b257-b12578acf8a5 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:21:51] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:22:03] "[37mGET /api/v1.0/image_codes/d775d4d3-dd56-4ff5-9726-0ee0e0d032fa HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:22:03] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:22:09] "[37mGET /api/v1.0/image_codes/ae077245-86f4-491b-a0cf-3bf9fddf2c48 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:22:09] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:24:19] "[37mGET /api/v1.0/image_codes/4994260f-3737-484b-b46d-fb22a04b2de8 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:24:19] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:25:21] "[37mGET /api/v1.0/image_codes/bbced0f1-9415-4f83-8f20-73b14aa5cee9 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:25:21] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:15] "[37mGET /api/v1.0/image_codes/a1d6316b-ff4c-433a-88af-efe366c6f460 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:15] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:16] "[37mGET /api/v1.0/image_codes/7ccef0f5-88b4-4b86-9a20-7288c88c17f6 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:16] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:26] "[37mGET /api/v1.0/image_codes/f88826e1-c5b6-4beb-a2ce-15cf23545a47 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:26] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:41] "[37mGET /api/v1.0/image_codes/7f1a4172-0acf-4e80-ac50-c397a7af0ce2 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:41] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:45] "[37mGET /api/v1.0/image_codes/68c46bf0-6793-41bb-a8c6-13ae1a5b6d82 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:45] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:50] "[37mGET /api/v1.0/image_codes/e86eca3d-8ed2-442b-952d-f4dc31768480 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:26:50] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:27:18] "[37mGET /api/v1.0/image_codes/6f705e70-ab70-4d59-8c51-7d18e4fd2a4c HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:27:18] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:27:30] "[37mGET /api/v1.0/image_codes/47af520c-d980-4e3b-9b4f-d52c48d6fd93 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:27:30] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:42:33] "[37mGET /api/v1.0/image_codes/39114ae2-7bf3-4aec-b96d-a64c02075857 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:42:33] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:42:47] "[37mGET /api/v1.0/image_codes/e9ebfe7b-8109-47cc-8851-0ca7fdf2d9a4 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:42:47] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:47:21] "[37mGET /api/v1.0/image_codes/303001b8-f509-4b1a-89f4-cb8017c5e202 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:47:21] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:47:26] "[37mGET /api/v1.0/image_codes/d804b724-5581-454f-94d7-b2b38275dd45 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:47:26] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:49:45] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:50:21] "[37mGET /api/v1.0/image_codes/4dcf7719-e496-4228-9235-20aeac726a7b HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:50:21] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:24] "[37mGET /api/v1.0/image_codes/5c96de05-7815-49ca-bc96-37b3ba9c1958 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:24] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:39] "[37mGET /api/v1.0/image_codes/e5c265c9-318b-4ee1-acd2-dee7c4aea7ea HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:39] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:48] "[37mGET /api/v1.0/image_codes/52e3b412-f21c-421d-a8b7-0bc3f4567eec HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:48] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:52] "[37mGET /api/v1.0/image_codes/1f32a07f-cfbf-44cb-9183-9f844b25bae0 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:53:52] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:55:15] "[37mGET /api/v1.0/image_codes/3b7f0518-be60-47df-a742-84c5dd92fdce HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:55:15] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:55:37] "[37mGET /api/v1.0/image_codes/9c0f7b08-0933-4954-bcca-4475c5e1fe0f HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:55:37] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:56:40] "[37mGET /api/v1.0/image_codes/6076e552-d6bf-4fad-a0a4-dfa96c69de40 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:56:40] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:56:45] "[37mGET /api/v1.0/image_codes/e6b7e108-0ccb-4752-8b5b-7eea0c24f0df HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:56:45] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:56:52] "[37mGET /api/v1.0/image_codes/3e054637-24fe-4d9a-a9e9-cebe0d150b6d HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:56:52] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:57:08] "[37mGET /api/v1.0/image_codes/bb363ed0-66a2-499b-8e0f-4933352d8014 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:57:08] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:57:23] "[37mGET /api/v1.0/image_codes/4d566ae5-43a0-4f54-9248-5b4ba96b9fa1 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:57:23] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:59:37] "[37mGET /api/v1.0/image_codes/de8a276e-2e7d-4f84-84d9-4c31545b6598 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [02/Sep/2020 23:59:37] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:05:20] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:06:00] "[37mGET /api/v1.0/image_codes/11992ea9-3151-4081-b10f-f2a49f72eb21 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:06:00] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:07:29] "[37mGET /api/v1.0/image_codes/0f395b8a-d21b-4fed-b70f-dfba5475ac77 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:07:29] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:11:39] "[37mGET /api/v1.0/image_codes/75a555ea-3846-4081-ad49-4957fdcfd628 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:11:39] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:07] "[37mGET /api/v1.0/image_codes/ea7ff0d0-2db6-4347-b95b-1843cb44ab34 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:07] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:34] "[37mGET /api/v1.0/image_codes/268b0464-8e5f-4882-90ef-a7ac9f79ebbe HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:34] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:45] "[37mGET /api/v1.0/image_codes/90eca46c-4acb-44fd-a2dd-b2c077ae9667 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:45] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:48] "[37mGET /api/v1.0/image_codes/ec003b2e-1e48-44b1-a386-40be202db2bf HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:12:48] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:21:24] "[37mGET /api/v1.0/image_codes/a71c7dfb-4478-4715-a787-b2e791fdde92 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:21:24] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:21:28] "[37mGET /api/v1.0/image_codes/d753fafd-fe67-4864-b583-ed840333a42a HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 00:21:28] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 16:27:24] "[37mGET /api/v1.0/image_codes/474f97a1-a509-413c-96d5-9ad0e5138963 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 16:45:47] "[37mGET /api/v1.0/image_codes/fa29153a-5f86-4064-8ccb-f314ce005cca HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 16:45:47] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 16:45:59] "[37mGET /api/v1.0/image_codes/9d07851d-7eef-4b2e-86fe-0ea2a5224cd8 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 16:45:59] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [03/Sep/2020 17:30:43] "[37mGET /api/v1.0/image_codes/20479b20-14e7-4e8a-b9cb-6c408353c858 HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:14:17] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:14:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:14:22] "[37mGET /api/v1.0/ HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:14:31] "[33mGET /api/v1.0/15911111111 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:14:54] "[33mGET /api/v1.0/sms_codes/15911111111 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:15:00] "[33mGET /api/v1.0/sms_codes/15911111111 HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:15:09] "[33mGET /api/v1.0/sms_codes/15912341234 HTTP/1.1[0m" 404 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:16:35] "[37mGET /api/v1.0/sms_codes/15912341234 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 04:16:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/ishop/api_1_0/verify_code.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 05:02:51] "[37mGET /api/v1.0/sms_codes/15912341234?image_uuid=1&image_code=1943 HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/config.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 05:05:19] "[37mGET /api/v1.0/sms_codes/15912341234?image_uuid=1&image_code=1943 HTTP/1.1[0m" 200 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 05:05:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:113 127.0.0.1 - - [04/Sep/2020 05:06:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
