@@ -1,7 +1,7 @@
-from ronglian_sms_sdk.SmsSDK import SmsSDK
+from ronglian_sms_sdk import SmsSDK
 import json
 
-
+# todo: 这些数据应该都保存到数据库中
 # accId = '容联云通讯分配的主账号ID'
 accId = 'aaf98f894e52805a014e6cea68021793'
 # accToken = '容联云通讯分配的主账号TOKEN'

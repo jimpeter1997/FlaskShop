@@ -6,6 +6,7 @@ from io import BytesIO
 from ishop.models import UsersModel
 from ishop.libs.ronglian_sms_sdk.SendMessage import CCP
 import random
+import re
 
 
 @api.route('/image_codes/<string:image_uuid>')
@@ -40,20 +41,40 @@ def get_image_code(image_uuid):
     resp.headers["Content-Type"] = "image/png"
     return resp
 
+@api.route('/image_codes_values/<string:image_uuid>')
+def get_image_codes_number(image_uuid):
+    print(image_uuid)
+    try:
+        image_numbers = redis_store.get("image_code_{}".format(image_uuid))
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(resCode='1', message="数据库错误，请联系管理员")
+
+    if image_numbers is None:
+        return jsonify(resCode='1', message="您请求的验证码无效，请再次请求")  #可能是过期，也可能是乱请求的
+
+    return jsonify(resCode='0', message="请求成功", data={
+        "image_numbers": image_numbers.decode()  # 直接取出来是二进制的，需要用.decode()转化一下格式
+    })
 
 # GET  url: /apt/v1.0/sms_codes/<手机号码>?image_uuid=图片验证码UUID&image_code=图片验证码数据
-@api.route('/sms_codes/<re(r"1[345789]\d{9}"):mobile>')
-def get_sms_codes(mobile):
-    """获取短信验证码"""
+@api.route('/send_sms_codes/<string:mobile>')
+def send_sms_codes(mobile):
+    """获取短信验证码信息"""
     # 1.获取参数
     image_uuid = request.args.get("image_uuid")
     image_code = request.args.get("image_code")
+    # post_request_dict = request.get_json()
+    # print(post_request_dict.get("jsdata"))
+    print(image_uuid, image_code)
     # 1.1 校验参数     Q：为什么手机号码不校验了？A：看转换器re;
     #                 Q:为什么不对这两个数据进行更具体的校验？A因为他们不写入数据库
     if not all([image_uuid, image_code]):
         # 表示参数不完整
         return jsonify(resCode='1', message="参数不正确")
     # 2.校验参数
+    if not re.match(r'1[345789]\d{9}', mobile):
+       return jsonify(resCode='1', message="手机号码错误")
     # 2.1 从redis中取出数据
     try:
         real_image_code = redis_store.get("image_code_{}".format(image_uuid))
@@ -73,8 +94,19 @@ def get_sms_codes(mobile):
     except Exception as e:
         current_app.logger.error(e)
     # 2.3 对比数据库中的图片验证码和用户发送过来的图片验证码
-    if real_image_code.lower() != image_code.lower():
+    if real_image_code.decode().lower() != image_code.lower():
+        print("真实的图片验证码 = ", real_image_code.lower())
+        print("传入的图片验证码 = ", image_code.lower())
         return jsonify(resCode='1', message="图片验证码错误")
+
+    # 2.3.1 判断在60秒内是否已经给这个电话号码发送过手机验证码了
+    try:
+        sened_flag = redis_store.get("sended_sms_codes_{}".format(mobile))
+    except Exception as e:
+        current_app.logger.error(e)
+    else:
+        if sened_flag is not None:
+            return jsonify(resCode='1', message="不要过于频繁申请验证码，于60秒后重试")
 
     # 2.4 判断手机号码是否已经存在
     try:
@@ -91,7 +123,9 @@ def get_sms_codes(mobile):
     sms_codes = "%06d" % (random.randint(0, 999999))
     # 3.2 保存短信验证码到redis中
     try:
-        redis_store.setex("sms_codes_{}".format(mobile), 5*60, sms_codes)
+        redis_store.setex("sms_codes_{}".format(mobile), 24*60*60, sms_codes)
+        # 并且记录一下已经发送过这个这个电话验证码了，60秒内使之无法重复发送
+        redis_store.setex("sended_sms_codes_{}".format(mobile), 24*60*60, 1)
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(resCode='1', message="数据库保存短信验证码错误")

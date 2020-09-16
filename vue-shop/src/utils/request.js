@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Message } from 'element-ui';
 
 console.log("in request.js: process.env.NODE_ENV =", process.env.NODE_ENV);
 
@@ -34,7 +35,7 @@ service.interceptors.response.use(
       // 服务器有响应，但是并不是想要的数据
       // Message.error(data.message);
       console.log("服务器有响应，但是并不是想要的数据");
-      return Promise.reject(data.resCode);
+      return Promise.reject(data);
     } else {
       // 服务器有响应，并且数据正确
       console.log("服务器有响应，并且数据正确");

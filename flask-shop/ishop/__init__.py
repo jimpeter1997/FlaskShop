@@ -61,7 +61,7 @@ def create_app(config_name):
     Session(app)
 
     # 为flask开启csrf防护
-    CSRFProtect(app)
+    # CSRFProtect(app)
     # 为什么在这个地方导入api_1_0？？？ 解决循环导入的问题。
     from ishop import api_1_0
     app.url_map.converters["re"] = ReConverter  # 将自定义的转换器注册到flask中

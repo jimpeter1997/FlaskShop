@@ -26,4 +26,5 @@ export function GetInfoPost(postParams){
             secretKey: '' // rsaEncrypt(new Date().getTime()+':'+'alex'+':'+'otherinfos') // 预留字段给加密用
         }
     })
-}
+};
+

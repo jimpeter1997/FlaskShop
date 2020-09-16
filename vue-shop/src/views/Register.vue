@@ -21,13 +21,13 @@
                         </el-form-item>
                         
                         <el-form-item prop="imageCode" label="图片验证">
-                            <el-input id="imageCode" type="text" v-model="ruleForm.imageCode" prefix-icon="el-icon-picture" placeholder="验证码区分大小写" style="width:60%;;float: left;display: inline-block;" ></el-input>
+                            <el-input id="imageCode" type="text" v-model="ruleForm.imageCode" prefix-icon="el-icon-picture" placeholder="验证码不区分大小写" style="width:60%;;float: left;display: inline-block;" ></el-input>
                             <img :src="'http://127.0.0.1:5000/api/v1.0/image_codes/'+uuidNumber" v-on:click="ImgChange" alt="" style="max-width:35%;height:40px;float: left;display: inline-block;margin-left:5%;text-align:center" >
                         </el-form-item>
                         
                         <el-form-item prop="phoneCode" label="短信验证">
                             <el-input id="phoneCode" type="text" v-model="ruleForm.phoneCode"  prefix-icon="el-icon-message" placeholder="短信验证码" style="width:60%" ></el-input>
-                            <el-button type="success" style="width:40%" >发送短信</el-button>
+                            <el-button type="success" @click="getSMSCode(is_match.is_image_match)" style="width:40%" :disabled="is_match.is_image_match">短信验证码</el-button>
                         </el-form-item>
                         
                         <el-form-item prop="password" label="密码">
@@ -41,10 +41,10 @@
                         <el-button @click="resetForm('ruleForm2')">重置</el-button> -->
                         <el-form-item>
                             <el-button  style="width:45%;float:left;margin-top:2rem" @click="emptyForm">重置</el-button>
-                            <el-button type="primary" style="width:45%;float:right;margin-top:2rem" @click="submitForm('ruleForm')">马上注册</el-button>
+                            <el-button type="primary" style="width:45%;float:right;margin-top:2rem" @click="submitForm('ruleForm')" :disabled="buttonStatus.registerStatus">马上注册</el-button>
                         </el-form-item>
                     </el-form>
-                    <div style="width:55%;float:right;margin-top:3rem;font-size:18px">已经有帐号？<a href="#" style="color:#E6A23C">点击登录</a></div>
+                    <div style="width:55%;float:right;margin-top:3rem;font-size:18px">已经有帐号？<a href="/#/login" style="color:#E6A23C">点击登录</a></div>
                 </el-col>
                 
             </el-row>
@@ -59,10 +59,11 @@
 
 
 <script>
-import { onUnmounted, reactive, ref } from "@vue/composition-api";
+import { reactive, ref, onMounted, onBeforeUnmount  } from "@vue/composition-api";
 import uuid from "uuid";
 import { GetCates, GetCodeImg } from "../apis/read.js";
 import { Register } from "../apis/users/register.js";
+import { getInofs, postInofs } from "../apis/fournight.js";
 
 
 export default {
@@ -86,10 +87,12 @@ export default {
         GetCates(getImgParams).then((resp)=>{
             console.log("register : resp.data = ",resp.data)
         });   
-        
+
         
 
-        document.querySelector('body').setAttribute('style', 'background:url("/images/register_background.jpg") no-repeat; background-position: center;background-attachment:fixed');
+        onMounted(()=>{
+            document.querySelector('body').setAttribute('style', 'background:url("/images/register_background.jpg") no-repeat; background-position: center;background-attachment:fixed');
+        });
         // 背景颜色	{background-color:数值}
         // 背景图片	{background-image: url(URL)|none}
         // 背景重复	{background-repeat:inherit|no-repeat|repeat|repeat-x|repeat-y}
@@ -98,7 +101,7 @@ export default {
         // 背影样式	{background:背景颜色|背景图象|背景重复|背景附件|背景位置}
 
 
-        onUnmounted(()=>{
+        onBeforeUnmount(()=>{
             document.querySelector('body').removeAttribute('style');
         });
 
@@ -110,9 +113,64 @@ export default {
             uuidNumber.value = uuid.v4();
         };
 
+        const buttonStatus = reactive({
+            smsStatus: true,
+            registerStatus: true
+        });
+        const is_match = reactive({
+                is_image_match: true,
+                is_sms_match: true
+            }); 
+
+        const imageCodeFromBack = reactive({
+            value: ''
+        });
+        const getImageParams = reactive({
+                url: "/image_codes_values/"+ uuidNumber.value,
+                data:''
+            });
+        getInofs(getImageParams).then((resp)=>{
+            // is_match.is_image_match = true;
+            imageCodeFromBack.value = resp.data.data.image_numbers
+        }).catch(error =>{
+            context.root.$message({
+                message: "验证码已经失效，请刷新后重新输入",
+                type: 'Danger'
+            });
+        });
+        
+        const checkImageCode = (value) => {
+            // is_match.is_image_match = true;
+            console.log("imageCodeFromBack.value =&&&&&&&&&&&&&&&&&&&&&&", imageCodeFromBack.value)
+            console.log("value =&&&&&&&&&&&&&&&&&&&&&&", value)
+            getImageParams.url = "/image_codes_values/"+ uuidNumber.value;
+            getInofs(getImageParams).then((resp)=>{
+                // is_match.is_image_match = true;
+                imageCodeFromBack.value = resp.data.data.image_numbers
+            }).catch(error =>{
+                context.root.$message({
+                    message: "验证码已经失效，请刷新后重新输入",
+                    type: 'Danger'
+                });
+            });
+            if(imageCodeFromBack.value.toLowerCase() == value.toLowerCase()){
+                is_match.is_image_match =  false;
+            } else{
+                context.root.$message({
+                    message: "验证码错误",
+                    type: 'Danger'
+                });
+                is_match.is_image_match =  true;
+            }
+
+        }
+      
+        
+
         // 表单验证方法
         const validatePhoneNumber = (rule, value, callback) =>{
-            console.log("I am validatePhoneNumber");
+            buttonStatus.smsStatus = true;
+            buttonStatus.registerStatus = true;
             // let reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
             let reg = /^1[3456789]\d{9}$/;
             if (value === '') {
@@ -123,29 +181,44 @@ export default {
                 callback();
             }
         };
+        
         const validateImageCode = (rule, value, callback) =>{
-            console.log("I am validatePassword： value = ", value);
+            buttonStatus.smsStatus = true;
+            buttonStatus.registerStatus = true;
+            // is_match.is_image_match = true;
+            
             let numReg = /^[A-Za-z0-9]{6}$/; 
             // let numReg = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
             if (!value) {
-                return callback(new Error('验证码不能为空'));
+                buttonStatus.smsStatus = true;
+                callback(new Error('验证码不能为空'));
             } else if(!numReg.test(value)){
-                return callback(new Error('验证码为6位的数字和字母(区分大小写)'))
+                buttonStatus.smsStatus = true;
+                callback(new Error('验证码为6位的数字和字母(区分大小写)'))
             } else{
+                buttonStatus.smsStatus = false;
+                buttonStatus.registerStatus = false;
                 callback();
             }
+            checkImageCode(value);
         };
         const validatePhoneCode = (rule, value, callback) =>{
-            let reg = /^[0-9]{4}$/;
+            buttonStatus.smsStatus = false;
+            buttonStatus.registerStatus = true;
+            let reg = /^[0-9]{6}$/;
             if(!value){
-                return callback(new Error('手机验证码不能为空'));
+                callback(new Error('手机验证码不能为空'));
             } else if(!reg.test(value)){
-                return callback(new Error('手机验证码为4位的数字'));
+                callback(new Error('手机验证码为6位的数字'));
             } else{
+                buttonStatus.smsStatus = false;
+                buttonStatus.registerStatus = false;
                 callback();
             }
         };
         const validatePassword = (rule, value, callback) => {
+            buttonStatus.smsStatus = false;
+            buttonStatus.registerStatus = true;
             let passwordreg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
             if (value === '') {
                 callback(new Error('密码不能为空'));
@@ -157,11 +230,15 @@ export default {
             
         };
         const validateRepeatPassword = (rule, value, callback) =>{
+            buttonStatus.smsStatus = false;
+            buttonStatus.registerStatus = true;
             if (value === '') {
                 callback(new Error('密码不能为空'));
             }else if(value != ruleForm.password){
                 callback(new Error('两次输入密码不一致'))
             } else {
+                buttonStatus.smsStatus = false;
+                buttonStatus.registerStatus = false;
                 callback();
             }
         };
@@ -171,6 +248,46 @@ export default {
             ruleForm.phoneCode='';
             ruleForm.password='';
             ruleForm.repeatPassword='';
+            buttonStatus.smsStatus = true;
+            buttonStatus.registerStatus = true;
+        };
+
+        const getSMSCode = (value) =>{
+            // is_match.is_image_match = true;
+            if(ruleForm.phoneNumber == ''){
+                context.root.$message.error('电话不能为空，不然验证码不知道往哪里发');
+                return false
+            }
+            
+
+            if(value){
+                console.log("ruleForm.imageCode ====", ruleForm.imageCode)
+                context.root.$message({
+                        message: "图片验证码错误，请确认后重新输入",
+                        type: 'Danger'
+                    });
+            } else{
+                // 开始发送请求
+                const paramsSMS = reactive({
+                    url:'/send_sms_codes/'+ ruleForm.phoneNumber+'?image_uuid='+uuidNumber.value+'&image_code='+ruleForm.imageCode,
+                    data: ''
+                });
+
+                getInofs(paramsSMS).then((resp)=>{
+                    console.log("手机验证码向服务器的请求结果====", resp);
+                    context.root.$message({
+                        message: "验证码已发送到您的手机，请注意查收",
+                        type: 'Danger'
+                    });
+                }).catch((error)=>{
+                    console.log("手机验证码向服务器的请求结果==错误==", error);
+                    context.root.$message({
+                        message: error.message,
+                        type: 'Danger'
+                    });
+                })
+                
+            }
 
         };
 
@@ -179,29 +296,27 @@ export default {
             // 这个地方的contex表现了，context内大概率就是保存着来自当前页面的信息
             if (valid) {
                 alert('submit!');
-                let registerData = {
-                    phoneNumber: ruleForm.phoneNumber,
-                    password: ruleForm.password,
-                    phoneCode: ruleForm.phoneCode
-                }
+                const registerData = reactive({
+                    url:"/users/register",
+                    data:{
+                        phoneNumber: ruleForm.phoneNumber,
+                        password: ruleForm.password,
+                        repeatPassword: ruleForm.repeatPassword,
+                        phoneCode: ruleForm.phoneCode,
+                        // csrf_token: 
+                    }
+                });
                 console.log(registerData)
                 // Register(registerData).then(response => {}).catch(error =>{})
-                Register(registerData).then(response =>{
-                console.log(response);
-                console.log('注册成功');
-                
-                // context.refs.message({
-                //   message: response.data.message,
-                //   type: 'success'
-                // }); // 这是错误示范
-
-                context.root.$message({
-                    message: response.data.message,
-                    type: 'success'
-                });
-                }).catch(error => {
-
+                postInofs(registerData).then((resp) =>{
+                    console.log(resp)
+                }).catch((e) => {
+                   context.root.$message({
+                    message: e.message,
+                    type: 'Danger'
+                }); 
                 })
+                
             } else {
                 console.log('error submit!!');
                 return false;
@@ -243,6 +358,8 @@ export default {
             // 下面的是对象数据类，就是reactive定义的
             ruleForm,
             rules,
+            buttonStatus,
+            is_match,
             // 下面的方法
             ImgChange,
 
@@ -252,6 +369,7 @@ export default {
             validatePassword,
             validateRepeatPassword,
             emptyForm,
+            getSMSCode,
             submitForm
         }
     }

@@ -1,5 +1,6 @@
 from datetime import datetime
 from . import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 """
@@ -23,12 +24,12 @@ flask-sqlalchemy:
     
     一对多：
         # 一个人可以有多个邮箱地址
-        class Person(db.Model):
+        class Person(db.Model): # 一 ： relationship
             id = db.Column(db.Integer, primary_key=True)
             name = db.Column(db.String(50))
             addresses = db.relationship('Address', backref='person', lazy='dynamic')
         
-        class Address(db.Model):
+        class Address(db.Model):  # 多 ： ForeignKey
             id = db.Column(db.Integer, primary_key=True)
             email = db.Column(db.String(50))
             person_id = db.Column(db.Integer, db.ForeignKey('person.id'))
@@ -106,7 +107,7 @@ class TogethersModel(BaseModel, db.Model):
     """团购模型"""
     __tablename__ = 'ishop_togethers'
     id = db.Column(db.Integer, primary_key=True)
-    good_id = db.Column(db.Integer, db.ForeignKey('ishop_users.id'))
+    good_id = db.Column(db.Integer, db.ForeignKey('ishop_goods.id'))
     together_date = db.Column(db.DateTime, nullable=False)
     together_count = db.Column(db.Integer, nullable=False, default=100)
     together_deadline = db.Column(db.DateTime, nullable=False)
@@ -135,6 +136,31 @@ class UsersModel(BaseModel, db.Model):
     user_commons = db.relationship('CommonsModel', backref='usersmodel')
     user_orders = db.relationship('OrdersModel', backref='usersmodel')
     user_addresses = db.relationship('UserAddress', backref='usersmodel')
+
+    # 加上property装饰器后，会把函数作为属性，函数名就是属性名称：设置属性操作
+    @property
+    def user_passwd(self):
+        """读取属性的函数行为"""
+        # 函数的返回值会作为属性的返回值
+        # return check_password_hash(self.user_passwd_hash)
+        # return ArithmeticError("这个属性只能设置，不能读取")
+        return self.user_passwd_hash
+
+    # 对应设置属性操作：注意这个装饰器，必须是带有@property装饰器的函数名
+    @user_passwd.setter
+    def user_passwd(self, value):
+        self.user_passwd_hash = generate_password_hash(value)
+
+    # # 把函数转化成一个属性 @property
+    # def generate_password_hash(self, origin_password):
+    #     """对密码进行加密"""
+    #     self.user_passwd_hash = generate_password_hash(origin_password)
+    def check_password(self, passwd):
+        """
+        检验密码的正确性
+        """
+        return check_password_hash(self.user_passwd_hash, passwd)
+
 
 
 class CommonsModel(BaseModel, db.Model):
