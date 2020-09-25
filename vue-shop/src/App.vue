@@ -10,7 +10,12 @@
               <span class="sep">|</span>
               <el-button type="text">注册</el-button>
             </li>
-            <li v-else> {{ userName.name }}</li>
+            <li v-else> 
+              
+              <el-button type="text" >{{ userName.name }}</el-button>
+              <span class="sep">|</span>
+              <el-button type="text">退出</el-button>
+              </li>
             <li><a>微信公众号</a></li>
             <li>
               <router-link to="/order">我的订单</router-link>
