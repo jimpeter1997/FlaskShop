@@ -9,7 +9,8 @@ from adminshop.models import TestUser
 @admin_views.route('test')
 def test():
     context = {
-        'title': "测试标题"
+        'title': "测试标题",
+        'hinfo': "你好呀，Flask项目"
     }
-    user = TestUser.query()
+    # user = TestUser.query().filter_by()
     return render_template('base.html', context=context)
