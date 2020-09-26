@@ -31,7 +31,7 @@ class Config(object):
     # 如果设置session的生命周期是否是会话期, 为True，则关闭浏览器session就失效
     # SESSION_PERMANENT = False
     # SESSION有效期，单位：秒
-    PERMANENT_SESSION_LIFETIME = 86400
+    PERMANENT_SESSION_LIFETIME = 60*60*24  # 保存一天
     # 是否对发送到浏览器上session的cookie值进行加密
     SESSION_USE_SIGNER = True
     # 保存到redis的session数的名称前缀

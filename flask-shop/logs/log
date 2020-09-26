@@ -4514,3 +4514,11 @@ INFO _internal.py:113  * Restarting with stat
 WARNING _internal.py:113  * Debugger is active!
 INFO _internal.py:113  * Debugger PIN: 943-273-711
 INFO _internal.py:113 127.0.0.1 - - [24/Sep/2020 13:56:24] "[37mGET /api/v1.0/session HTTP/1.1[0m" 200 -
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/config.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
+INFO _internal.py:113  * Detected change in '/home/alex/alexPrograms/FlaskShop/flask-shop/config.py', reloading
+INFO _internal.py:113  * Restarting with stat
+WARNING _internal.py:113  * Debugger is active!
+INFO _internal.py:113  * Debugger PIN: 943-273-711
