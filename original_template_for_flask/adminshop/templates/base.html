@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ context.title }}</title>
+    <link rel="shortcut icon" href="{{url_for('static',filename='favicon.ico')}}" type="image/x-icon"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+</head>
+<body>
+<h1>{{ context.hinfo }},用户：{{ context.user_name }}</h1>
+<h1>您的地址如下</h1>
+<ul>
+{% for temp in context.addresses %}
+    <li>{{ temp }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
