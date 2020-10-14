@@ -1,0 +1,199 @@
+{% extends 'base_index.html' %}
+
+{% block header_css %}
+ <style>
+
+ </style>
+{% endblock %}
+
+{% block index_body %}
+
+<!--        <div class="row text-left">-->
+<!--            <label class="col-2" id="company_name_label">公司名称：</label>-->
+<!--            <div class="col-6" id="company_name_div">{{ context.company_info.company_name }}</div>-->
+<!--            <input class="col-6 d-none" id="company_name_input" value="{{ context.company_info.company_name }}">-->
+<!--            <button id="company_name_change_btn" class="col-2" onclick="btn_change('company_name')">修改</button>-->
+<!--            <button class="col-2 d-none" id="company_name_save_btn" onclick="btn_save('company_name')">保存</button>-->
+<!--            <button class="col-2 d-none" id="company_name_input_cancel_btn" onclick="btn_cancel('company_name')" >取消</button>-->
+<!--        </div>-->
+
+        {% for temp in context.company_info %}
+        <div class="row text-left mb-3">
+            <label class="col-2" id="{{ temp.key }}_label">{{ temp.text }}：</label>
+            <div class="col-6" id="{{ temp.key }}_div">{{ temp.value }}</div>
+            <input class="col-6 d-none" id="{{ temp.key }}_input" value="{{ temp.value }}">
+            <button type="button" class="col-2 btn btn-primary" id="{{ temp.key }}_change_btn"  onclick="btn_change('{{ temp.key }}')">修改</button>
+            <button type="button" class="col-2 d-none btn btn-danger" id="{{ temp.key }}_save_btn" onclick="btn_save('{{ temp.key }}')">保存</button>
+            <button type="button" class="col-2 d-none btn btn-info" id="{{ temp.key }}_input_cancel_btn" onclick="btn_cancel('{{ temp.key }}')" >取消</button>
+        </div>
+        {% endfor %}
+
+
+<!--        <div class="col-12">-->
+<!--            <label>网站标题：</label>{{ context.company_info.web_title }}-->
+<!--        </div>-->
+<!--        <div class="col-12">-->
+<!--            <label>网站关键词：</label>{{ context.company_info.web_key_wrods }}-->
+<!--        </div>-->
+<!--        <div class="col-12">-->
+<!--            <label>网站描述：</label>{{ context.company_info.web_description }}-->
+<!--        </div>-->
+<!--        <div class="col-12">-->
+<!--            <label>网站版权信息：</label>{{ context.company_info.web_copyright }}-->
+<!--        </div>-->
+
+<!--        <div class="col-12">-->
+<!--            <label>容连云accid：</label>{{ context.company_info.ronglianyun_accId }}-->
+<!--        </div>-->
+
+<!--        <div class="col-12">-->
+<!--            <label>容连云accToken：</label>{{ context.company_info.ronglianyun_accToken }}-->
+<!--        </div>-->
+<!--        <div class="col-12">-->
+<!--            <label>容连云appId：</label>{{ context.company_info.ronglianyun_appId }}-->
+<!--        </div>-->
+<!--        <div class="col-12">-->
+<!--            <label>七牛云acess_key：</label>{{ context.company_info.qiniu_acess_key }}-->
+<!--        </div>-->
+<!--        <div class="col-12">-->
+<!--            <label>七牛云secret_key：</label>{{ context.company_info.qiniu_secret_key }}-->
+<!--        </div>-->
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer_js %}
+<script type="text/javascript">
+    // 自定义 getCookie 函数来拿到cookie中的 csrf_token 值
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    // 判断是否包含特殊字符
+    function is_validators(str){
+    　　var pattern = new RegExp("[`~!#$^&*()=|{}':;',\\[\\].<>《》/?~！#￥……&*（）——|{}【】‘；：”“'。，、？ ]");
+    　　if (pattern.test(str)){
+    　　　　return true;
+    　　}
+    　　return false;
+    }
+
+    function btn_change(name){
+        $(function(){
+            $('#'+ name +'_change_btn').unbind('click').click(function(){
+                $('#'+ name +'_div').attr('class', 'col-6 d-none');
+                $('#'+ name +'_input').attr('class', 'col-6');
+                $('#'+ name +'_change_btn').attr('class', 'col-2 d-none');
+                $('#'+ name +'_save_btn').attr('class', 'col-2 btn btn-danger')
+                $('#'+ name +'_input_cancel_btn').attr('class', 'col-2 btn btn-info');
+            });
+        });
+    }
+
+    function btn_cancel(name){
+        $(function(){
+            $('#'+ name +'_input_cancel_btn').unbind('click').click(function(){
+                $('#'+ name +'_change_btn').attr('class', 'col-2 btn btn-primary');
+                $('#'+ name +'_save_btn').attr('class', 'col-2 d-none')
+                $('#'+ name +'_input_cancel_btn').attr('class', 'col-2 d-none');
+                $('#'+ name +'_div').attr('class', 'col-6 ');
+                $('#'+ name +'_input').attr('class', 'col-6 d-none');
+
+            });
+        })
+    };
+
+    function btn_save(name){
+        $(function(){
+            $('#'+ name +'_save_btn').unbind('click').click(function(){
+                if (is_validators($('#'+ name +'_input').val())){
+                    alert("参数不合法, 请修改后重新输入！");
+                    return;
+                }
+                var params = {
+                    key: name,
+                    value: $('#'+ name +'_input').val()
+                }
+                $.ajax({
+                   url:"/company",
+                   type: "post",
+                   headers: {
+                        　　"X-CSRFToken": getCookie("csrf_token")
+                    　　},
+                   data: JSON.stringify(params),
+                   contentType: "application/json",
+                   success: function (resp) {
+                       if (resp.resCode == "0"){
+                            $('#'+ name +'_change_btn').attr('class', 'col-2 btn btn-primary');
+                            $('#'+ name +'_save_btn').attr('class', 'col-2 d-none')
+                            $('#'+ name +'_input_cancel_btn').attr('class', 'col-2 d-none');
+                            $('#'+ name +'_div').attr('class', 'col-6 ');
+                            $('#'+ name +'_input').attr('class', 'col-6 d-none');
+                            $('#'+ name +'_div').text(resp.data)
+                       }else {
+                            // 刷新当前界面
+                            // location.reload()
+                            alert(resp.message)
+                        }
+                    }
+                })
+            });
+        })
+    };
+
+
+    //$(function(){
+        //$('#company_name_change_btn').click(function(){
+        //    $('#company_name_div').attr('class', 'col-6 d-none');
+        //    $('#company_name_input').attr('class', 'col-6');
+        //    $('#company_name_change_btn').attr('class', 'col-2 d-none');
+        //    $('#company_name_save_btn').attr('class', 'col-2')
+        //    $('#company_name_input_cancel_btn').attr('class', 'col-2');
+        //});
+
+        //$('#company_name_save_btn').click(function(){
+        //    var params = {
+        //        key: 'company_name',
+        //        value: $('#company_name_input').val()
+        //    }
+        //    $.ajax({
+        //       url:"/company",
+        //       type: "post",
+        //       headers: {
+        //            　　"X-CSRFToken": getCookie("csrf_token")
+        //        　　},
+        //       data: JSON.stringify(params),
+        //       contentType: "application/json",
+        //       success: function (resp) {
+        //           if (resp.resCode == "0"){
+        //                console.log(resp.message.data);
+        //                $('#company_name_change_btn').attr('class', 'col-2');
+        //                $('#company_name_save_btn').attr('class', 'col-2 d-none')
+        //                $('#company_name_input_cancel_btn').attr('class', 'col-2 d-none');
+        //                $('#company_name_div').attr('class', 'col-6 ');
+        //                $('#company_name_input').attr('class', 'col-6 d-none');
+        //                $('#company_name_div').text(resp.message.data)
+        //           }else {
+        //                location.reload()
+        //            }
+        //        }
+        //    })
+        //});
+
+        //$('#company_name_input_cancel_btn').click(function(){
+        //    alert("点击了取消");
+        //    $('#company_name_change_btn').attr('class', 'col-2');
+        //    $('#company_name_save_btn').attr('class', 'col-2 d-none')
+        //    $('#company_name_input_cancel_btn').attr('class', 'col-2 d-none');
+        //    $('#company_name_div').attr('class', 'col-6 ');
+        //    $('#company_name_input').attr('class', 'col-6 d-none');
+        //});
+
+    //})
+</script>
+{% endblock %}

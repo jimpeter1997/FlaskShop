@@ -1,5 +1,7 @@
 from . import db
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 
 class BaseModel(object):
@@ -25,3 +27,79 @@ class TestAddress(BaseModel, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('test_user_out.id'))  # 一对多关系中，这个一中使用ForeignKey，并填写表名.id
     user_address = db.Column(db.String(120), nullable=False)
+
+
+class AdminUser(BaseModel, db.Model, UserMixin):
+    __tablename__ = 'ishop_admin_user'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), nullable=False, unique=True)
+    password_hash = db.Column(db.String(120), nullable=False)
+    is_super_user = db.Column(db.Boolean, default=False)
+
+    # 加上property装饰器后，会把函数作为属性，函数名就是属性名称：设置属性操作
+    @property
+    def password(self):
+        """读取属性的函数行为"""
+        # 函数的返回值会作为属性的返回值
+        # return check_password_hash(self.user_passwd_hash)
+        # return ArithmeticError("这个属性只能设置，不能读取")
+        return self.password_hash
+
+    # 对应设置属性操作：注意这个装饰器，必须是带有@property装饰器的函数名
+    @password.setter
+    def password(self, value):
+        self.password_hash = generate_password_hash(value)
+
+    # # 把函数转化成一个属性 @property
+    # def generate_password_hash(self, origin_password):
+    #     """对密码进行加密"""
+    #     self.user_passwd_hash = generate_password_hash(origin_password)
+    def check_password(self, passwd):
+        """
+        检验密码的正确性
+        """
+        return check_password_hash(self.password_hash, passwd)
+
+
+class CompanyInformation(BaseModel, db.Model):
+    __tablename__ = 'ishop_Company_infos'
+    id = db.Column(db.Integer, primary_key=True)  # 这个字段要不要？
+    # 公司基础信息
+    company_name = db.Column(db.String(25), default='AlexHunter‘s Company')
+    web_title = db.Column(db.String(128), default="AlexHunter网站标题")
+    web_key_wrods = db.Column(db.String(128), default="AlexHunter网站关键词")
+    web_description = db.Column(db.String(128), default='AlexHunter网站描述')
+    web_copyright = db.Column(db.String(128), default='AlexHunter版权信息或者备案信息')
+    # 容联云短信发送
+    ronglianyun_accId = db.Column(db.String(128), default='AlexHunter容联云信息，必须去申请！')
+    ronglianyun_accToken = db.Column(db.String(128), default='AlexHunter容联云信息，必须去申请！')
+    ronglianyun_appId = db.Column(db.String(128), default='AlexHunter容联云信息，必须去申请！')
+    # 七牛云图床信息
+    qiniu_acess_key = db.Column(db.String(128), default='AlexHunter七牛云图床信息，必须去申请！')
+    qiniu_secret_key = db.Column(db.String(128), default='AlexHunter七牛云图床信息，必须去申请！')
+
+
+class UserInfo(BaseModel, db.Model):
+    __tablename__ = 'ishop_user_infos'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32), nullable=False, unique=True)
+    password = db.Column(db.String(128), nullable=False)  # 后面处理
+    mobile = db.Column(db.String(11), nullable=False, unique=True)
+    money = db.Column(db.Float, default=0)  # 糙，Float不精准，大商城用int
+    avatar_url = db.Column(db.String(128), default='/avatar.png')
+    addresses = db.relationship('Address', backref='UserInfo')
+    # commons = db.Column()  # 评论，后面处理
+    # orders = db.Column()  # 订单信息，后面处理
+    # 用户等级，后面处理
+
+
+class Address(BaseModel, db.Model):
+    __tablename__ = 'ishop_address_infos'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('ishop_user_infos.id'))
+    is_primary_address = db.Column(db.Boolean, nullable=False, default=False)
+    address = db.Column(db.String(256), nullable=False)
+
+
+
+

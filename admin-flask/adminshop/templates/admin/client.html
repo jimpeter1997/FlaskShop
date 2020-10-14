@@ -1,0 +1,162 @@
+{% extends 'base_index.html' %}
+
+{% block index_body %}
+
+    <div class="row">
+        <div class="col">
+            <h1>这是用户信息页面</h1>
+        </div>
+
+    </div>
+    <div class="card">
+
+        <div class="row">
+          <div class="card-header col-12">
+              <h3 class="card-title">DataTable with default features</h3>
+<!--              <div id="example1_filter" class="dataTables_filter float-right">-->
+<!--                <label>Search:-->
+<!--                  <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">-->
+<!--                </label>-->
+<!--              </div>-->
+              <form class="form-inline float-right">
+                <label class="mb-2" for="inlineFormInputName2">搜索：
+                  <input type="text" class="form-control form-control-sm" id="inlineFormInputName2" placeholder="输入您要查询的内容">
+                </label>
+                <button type="submit" class="btn btn-primary mb-2 ml-2">提交</button>
+              </form>
+
+            </div>
+        </div>
+        <div class="row">
+          <div class="card-body col-12">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>昵称</th>
+                  <th>余额</th>
+                  <th>手机号</th>
+                  <th>密码</th>
+                  <th>地址</th>
+                  <th>订单</th>
+                  <th>评论</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td>Trident</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5</td>
+                  <td>C</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td>Trident</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td>Trident</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td>Trident</td>
+                </tr>
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.5
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td>Trident</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>昵称</th>
+                  <th>余额</th>
+                  <th>手机号</th>
+                  <th>密码</th>
+                  <th>地址</th>
+                  <th>订单</th>
+                  <th>评论</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+        </div>
+
+            <!-- /.card-header -->
+
+            <!-- /.card-body -->
+            <div class="row">
+            <div class="col-6 offset-3 ">
+              <div class="dataTables_paginate paging_simple_numbers " id="example1_paginate">
+                <ul class="pagination col-10 offset-1">
+                  <li class="paginate_button page-item previous disabled" id="example1_previous">
+                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                  </li>
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                  </li>
+                  <li class="paginate_button page-item ">
+                    <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                  </li>
+                  <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                  <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                  <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                  <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                  <li class="paginate_button page-item next" id="example1_next">
+                    <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            </div>
+
+          </div>
+
+
+{% endblock %}
+
+{% block footer_js %}
+<script src="{{ url_for('static', filename='dist/js/demo.js') }}"></script>
+<script>
+
+</script>
+{% endblock %}

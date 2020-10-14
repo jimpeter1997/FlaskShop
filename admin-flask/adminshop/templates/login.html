@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block main_body %}
+<div class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <b>商城后台</b>管理系统
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">请开始你的表演</p>
+
+      <form action="/login" method="post">
+        {{ form.csrf_token }}
+        <div class="input-group mb-3">
+<!--          <input type="email" class="form-control" placeholder="用户名">-->
+          {{ form.username(class='form-control') }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+<!--          <input type="password" class="form-control" placeholder="密码">-->
+          {{ form.password(class='form-control') }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <img src="/image_codes/1234" id="codeClick" class="clo-4" />
+<!--          <input type="text" class="form-control col-8" placeholder="验证码">-->
+          {{ form.imagenumber(class='form-control col-8') }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-key"></span>
+            </div>
+          </div>
+        </div>
+        {{ form.uuid() }}
+        <div class="row">
+          <div class="col-8">
+
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+<!--            <button type="submit" class="btn btn-primary btn-block">登录</button>-->
+            {{ form.submit(class='btn btn-primary btn-block') }}
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block footer_js %}
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}
+
