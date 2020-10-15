@@ -17,7 +17,7 @@ def user_loader(id):
 # @admin_views.route('/test', methods=['GET'])
 # def test():
 #     return 'test flask'
-@admin_views.route('test')
+@admin_views.route('/test')
 def test():
     user = TestUser.query.filter_by(id=1).first()
     print("user.user_address.first() = ", user.user_address.first())

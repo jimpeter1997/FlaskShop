@@ -1,0 +1,6 @@
+server {
+    servername:{{ context.title }}
+    listen: {{ context.contact }}
+    username: {{ context.username }}
+    password: {{ context.password }}
+}
