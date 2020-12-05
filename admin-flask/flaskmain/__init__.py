@@ -6,11 +6,11 @@ import pymysql
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_wtf import CSRFProtect
-from flask_wtf.csrf import generate_csrf
-from flask_login import LoginManager
 import logging
 from logging.handlers import  RotatingFileHandler  # 设置保存文件位置等信息
 import redis  # 主要是用来保存验证码的
+from flaskmain.utils.common import ReConverter
+
 
 
 # 设置日志的记录等级
@@ -26,7 +26,7 @@ logging.getLogger().addHandler(file_log_handler)
 
 
 db = SQLAlchemy()
-login_manager = LoginManager()
+# login_manager = LoginManager()
 redis_store_for_image_code = None
 
 
@@ -52,29 +52,18 @@ def create_app(config_name):
 
     # 利用flask-session，将session数据保存到redis中
     Session(app)
-    # 请求钩子
-    @app.after_request
-    def after_request(response):
-        # 调用函数生成 csrf_token
-        csrf_token = generate_csrf()
-        # 通过 cookie 将值传给前端
-        response.set_cookie("csrf_token", csrf_token)
-        return response
-
     # 利用flask-wtf， 为flask提供scrf_token保护
     CSRFProtect(app)
-    from adminshop import views
+    from flaskmain import views
     # 利用flask-login，来管理用户登录情况
-    global login_manager
-    login_manager.login_view = 'views.login'
-    login_manager.login_message_category = 'info'
-    login_manager.login_message = '请登录之后，再访问'
-    login_manager.init_app(app)
-
+    # global login_manager
+    # login_manager.login_view = 'views.login'
+    # login_manager.login_message_category = 'info'
+    # login_manager.login_message = '请登录之后，再访问'
+    # login_manager.init_app(app)
+    # 注册万能转化器
+    app.url_map.converters["re"] = ReConverter
     # 注册蓝图
     app.register_blueprint(views.admin_views, url_prefix="")
     pymysql.install_as_MySQLdb()
     return app
-
-
-

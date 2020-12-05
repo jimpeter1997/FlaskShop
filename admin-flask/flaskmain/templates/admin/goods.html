@@ -1,0 +1,50 @@
+{% extends 'base_index.html' %}
+
+{% block index_body %}
+
+    <div class="row">
+        <div class="col">
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">商品种类</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>商品分类名称</th>
+                      <th>商品分类排序</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Update software</td>
+                      <td>
+                        <span class="badge bg-danger">12233</span>
+                      </td>
+                      <td>
+                          <!--  -->
+                          <button type="button" name="button" class="btn btn-primary">修改</button>
+                          <button type="button" name="button" class="btn btn-warning" >删除</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><button class="btn btn-block btn-danger">添加商品分类</button></li>
+                </ul>
+              </div>
+            </div>
+
+        </div>
+
+
+    </div>
+{% endblock %}

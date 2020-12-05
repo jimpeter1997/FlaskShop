@@ -1,19 +1,19 @@
 $(document).ready(function(){
               var uuid = makeuuid();
               $('#uuid').attr('value', uuid);
-              $("#codeClick").attr('src','/image_codes/'+uuid);
+              $("#codeClick").attr('src','/image_codes/'+uuid+'.png');
             });
 $(document).ready(function(){
               $("#codeClick").click(function(){
                   // alert("点击了");
                   var uuid = makeuuid();
                   $('#uuid').attr('value', uuid);
-                  $("#codeClick").attr('src','/image_codes/'+uuid);
+                  $("#codeClick").attr('src','/image_codes/'+uuid+'.png');
               });
             });
 
 function makeuuid() { // 看起来像，但实际上不是的，要注意这个
-        var withLine = true; //带不带横线
+        var withLine = false; //带不带横线
         var len = 36; //长度为36
         var radix = 16; //16进制
         var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');

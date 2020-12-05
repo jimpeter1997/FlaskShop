@@ -1,9 +1,8 @@
 from . import admin_views
 from flask import render_template, session, request, current_app, flash, redirect, url_for, jsonify
-from flask_login import login_required
-from adminshop.models import CompanyInformation
-from adminshop import db
-from adminshop.utils.common import is_string_validate
+from flaskmain.models import CompanyInformation
+from flaskmain import db
+from flaskmain.utils.common import is_string_validate, login_required
 
 
 
@@ -54,24 +53,8 @@ def company():
     return render_template('/admin/company.html', context=context)
 
 
-@admin_views.route('/client')
-@login_required
-def client():
-    # company = CompanyInformation.query.filter_by(id=1).first()
-    context = {
-        'title': "用户信息页面"
-    }
-    return render_template('/admin/client.html', context=context)
 
 
-@admin_views.route('/goods')
-@login_required
-def goods():
-    # company = CompanyInformation.query.filter_by(id=1).first()
-    context = {
-        'title': "商品信息页面"
-    }
-    return render_template('/admin/goods.html', context=context)
 
 
 @admin_views.route('/activate')

@@ -1,0 +1,14 @@
+{
+    "http:amWwTHSr24xJdMek0IWy9-H7sMASrfnwifR3xJd9:ishop1943":
+        {
+            "upHosts": ["http://up.qiniu.com", "http://upload.qiniu.com", "-H up.qiniu.com http://183.131.7.3"],
+            "ioHosts": ["http://iovip.qbox.me"],
+            "deadline": 1604584673
+        },
+    "http:amWwTHSr24xJdMek0IWy9-H7sMASrfnwifR3xJd9:ishop002":
+        {
+            "upHosts": ["http://up-z2.qiniu.com", "http://upload-z2.qiniu.com", "-H up-z2.qiniu.com http://14.152.58.16"],
+            "ioHosts": ["http://iovip-z2.qbox.me"],
+            "deadline": 1604594008
+        }
+    }

@@ -1,19 +1,25 @@
 from . import admin_views
-from adminshop.libs.captcha import Captcha
-from adminshop import redis_store_for_image_code
+from flaskmain.libs.captcha import Captcha
+from flaskmain import redis_store_for_image_code
 from flask import current_app, jsonify, make_response
 from io import BytesIO
+import re
 
 
 
-@admin_views.route('/image_codes/<string:image_uuid>')
-def get_code_image(image_uuid):
+#@admin_views.route('/image_codes/<string:image_uuid>')
+@admin_views.route('/image_codes/<re(r"[a-zA-Z0-9]{36}.png"):image>')
+def get_code_image(image):
     """
     获取图片验证码链接
     :param image_uuid: 验证码编号
     :return: 正确情况下，返回验证码图片
              异常情况下，返回json数据
     """
+    print("image = ", image)
+    # test='kasduabshdvkjASVKDV.txt'
+    # m=re.findall(r'(.+?)\.',test)
+    image_uuid = re.findall(r'([a-zA-Z0-9]{36}).png',image)[0]
     text, img = Captcha.gene_code()
     # print("text = ", text)
     # 把取到text，也就是数字，保存进redis数据库
