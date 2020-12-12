@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ url_for('static', filename='plugins/summernote/summernote-bs4.css') }}">
+{% block header_each_css %}
+{% endblock %}
 {% endblock %}
 {% block main_body %}
 <div class="hold-transition sidebar-mini layout-fixed">
@@ -390,5 +392,9 @@
 <script src="{{url_for('static', filename='dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url_for('static', filename='dist/js/demo.js')}}"></script>
+
+{% block footer_each_js %}
+
+{% endblock %}
 
 {% endblock %}

@@ -1,0 +1,33 @@
+/* 弹窗css */
+.pop_con{
+        display: none;
+}
+.pop{
+    width: 500px;
+    height:300px;
+    position: fixed; /* 绝对定位 */
+    left: 50%;
+    top:50%;  /* 这两个条件以后，可以让pop的左上角出现在屏幕正中间 */
+    border: 3px solid #000; /* solid 边框颜色 */
+    background-color: #fff;
+    margin-top: -150px;
+    margin-left: -250px;  /* 这两个值是根据pop的宽高确定的 */
+    z-index: 9999;   /* 覆盖所有 */
+}
+
+.mask{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity:0.3;    /* 兼容其他浏览器 */
+    filter:alpha(opacity=30); /* 兼容IE */
+    left:0;
+    top:0;
+    z-index: 9990;  /* 覆盖所有，除了pop，这两个值有一定的关系pip.z-index > mask.z-index */
+}
+.close{
+    float:right;
+    font-size: 20px;
+    top:0;
+}

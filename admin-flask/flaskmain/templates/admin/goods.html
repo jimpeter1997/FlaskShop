@@ -1,13 +1,17 @@
 {% extends 'base_index.html' %}
+{% block header_each_css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/window.css')}}">
+{% endblock %}
 
 {% block index_body %}
 
     <div class="row">
-        <div class="col">
+        <!-- 商品种类行 -->
+        <div class="col-12">
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">商品种类</h3>
+                <h3 class="card-title">商品种类列表</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -27,8 +31,8 @@
                       </td>
                       <td>
                           <!--  -->
-                          <button type="button" name="button" class="btn btn-primary">修改</button>
                           <button type="button" name="button" class="btn btn-warning" >删除</button>
+                          <button type="button" name="button" class="btn btn-primary">修改</button>
                       </td>
                     </tr>
 
@@ -38,8 +42,83 @@
               <!-- /.card-body -->
               <div class="card-footer clearfix">
                 <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><button class="btn btn-block btn-danger">添加商品分类</button></li>
+                  <li class="page-item"><button class="btn btn-block btn-danger" id="addClass">添加商品分类</button></li>
                 </ul>
+              </div>
+            </div>
+
+        </div>
+        <!-- 商品详情行 -->
+
+        <div class="col-12">
+
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                    <div class="col-8">
+                        <h3 class="card-title">商品详情列表</h3>
+
+                    </div>
+                    <div class="col-2">
+                        <h3 class="card-title">商品分类选择：</h3>
+                    </div>
+                    <div class="col-2">
+                        <select class="form-control">
+                                  <option>全部(默认)</option>
+                                  <option>A类分类</option>
+                                  <option>B类分类</option>
+                                  <option>C类分类</option>
+                                  <option>D类分类</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>商品名称</th>
+                      <th>商品分类</th>
+                      <th>商品原价(元)</th>
+                      <th>商品活动</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>撒了的附近啦时间地方商品</td>
+                      <td>A类商品</td>
+                      <th>333</th>
+                      <th>限时折扣、团购</th>
+                      <td>
+                          <button type="button" name="button" class="btn btn-warning" >删除</button>
+                          <button type="button" name="button" class="btn btn-primary">修改</button>
+                          <button type="button" name="button" class="btn btn-success">查看详情</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <div class="row">
+                    <div class="col-5 offset-5">
+                        <ul class="pagination pagination offset-5 col-5">
+                          <li class="page-item"><a class="page-link" href="#">«</a></li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">»</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <ul class="pagination pagination-sm m-0 float-right">
+                          <li class="page-item"><button class="btn btn-block btn-danger">添加商品</button></li>
+                        </ul>
+                    </div>
+                </div>
               </div>
             </div>
 
@@ -47,4 +126,28 @@
 
 
     </div>
+
+    <div class="pop_con">
+            <div class="pop">
+                弹窗里的文字,在这个地方可以做一个表单 <br >
+                随便你输入什么：<input type="text" name="" value="">
+                <a href="#" id="close" class="close">x</a>
+            </div>
+            <div class="mask">
+                <!-- 弹窗的背景 -->
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block footer_each_js %}
+<script type="text/javascript">
+$("#addClass").click(function(){
+    alert("addClass clicked !");
+    $('.pop_con').fadeIn();
+    return false; // 如果不写这句，由于时间冒泡的原理，这边会返回到下面的
+                  // document绑定的事件，因此，他会把fadeIn()和fadeOut()一起执行，导致表单无法正常显示
+});
+
+</script>
 {% endblock %}
