@@ -5,9 +5,11 @@
 
 {% block index_body %}
 
+<!-- 这里开始 -->
     <div class="row">
         <!-- 商品种类行 -->
         <div class="col-12">
+
 
             <div class="card">
               <div class="card-header">
@@ -24,18 +26,30 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <!-- <tr>
                       <td>Update software</td>
                       <td>
                         <span class="badge bg-danger">12233</span>
                       </td>
                       <td>
-                          <!--  -->
                           <button type="button" name="button" class="btn btn-warning" >删除</button>
                           <button type="button" name="button" class="btn btn-primary">修改</button>
                       </td>
-                    </tr>
+                    </tr> -->
 
+                    {% for kind in context.goods_kinds %}
+                        <tr>
+                          <td>{{ kind.goods_kind_name }}</td>
+                          <td>
+                            <span class="badge bg-danger">{{ kind.goods_kind_index }}</span>
+                          </td>
+                          <td>
+                              <!--  -->
+                              <button onclick="kind_id_delete({{ kind.id }})" type="button" name="button" class="btn btn-warning" >删除</button>
+                              <button onclick="kind_id_change({{ kind.id }}, '{{ kind.goods_kind_name }}', {{ kind.goods_kind_index }})" type="button" name="button" class="btn btn-primary">修改</button>
+                          </td>
+                        </tr>
+                    {% endfor %}
                   </tbody>
                 </table>
               </div>
@@ -62,13 +76,17 @@
                     <div class="col-2">
                         <h3 class="card-title">商品分类选择：</h3>
                     </div>
+
+
+
+
+
                     <div class="col-2">
-                        <select class="form-control">
-                                  <option>全部(默认)</option>
-                                  <option>A类分类</option>
-                                  <option>B类分类</option>
-                                  <option>C类分类</option>
-                                  <option>D类分类</option>
+                        <select class="form-control" id="good_kind_option" onchange="changeShowKind()">
+                                  <option value="all">全部(默认)</option>
+                                  {% for kind in context.goods_kinds %}
+                                  <option value="{{ kind.id }}">{{ kind.goods_kind_name }}</option>
+                                  {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -85,11 +103,31 @@
                       <th>操作</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="goods_show">
+                      <tr>
+                        <td>撒了的附近啦时间地方商品</td>
+                        <td>A类商品</td>
+                        <th>333</th>
+                        <th>限时折扣、团购</th>
+                        <td>
+                            <button type="button" name="button" class="btn btn-warning" >删除</button>
+                            <button type="button" name="button" class="btn btn-primary">修改</button>
+                            <button type="button" name="button" class="btn btn-success">查看详情</button>
+                        </td>
+                      </tr>
+
+                    {% for good in context.goods %}
                     <tr>
-                      <td>撒了的附近啦时间地方商品</td>
-                      <td>A类商品</td>
-                      <th>333</th>
+                      <td>{{ good.good_name }}</td>
+                      <td>
+                          <select class="form-control">
+                                    {% for kind in context.goods_kinds %}
+
+                                    <option {% if good.good_kind_id == kind.id %}selected="selected"{% endif %}>{{ kind.goods_kind_name }}</option>
+                                    {% endfor %}
+                          </select>
+                      </td>
+                      <th>{{ good.good_price }}</th>
                       <th>限时折扣、团购</th>
                       <td>
                           <button type="button" name="button" class="btn btn-warning" >删除</button>
@@ -97,6 +135,7 @@
                           <button type="button" name="button" class="btn btn-success">查看详情</button>
                       </td>
                     </tr>
+                    {% endfor %}
 
                   </tbody>
                 </table>
@@ -115,7 +154,7 @@
                     </div>
                     <div class="col-2">
                         <ul class="pagination pagination-sm m-0 float-right">
-                          <li class="page-item"><button class="btn btn-block btn-danger">添加商品</button></li>
+                          <li class="page-item"><button onclick="add_goods()" class="btn btn-block btn-danger">添加商品</button></li>
                         </ul>
                     </div>
                 </div>
@@ -129,25 +168,241 @@
 
     <div class="pop_con">
             <div class="pop">
-                弹窗里的文字,在这个地方可以做一个表单 <br >
-                随便你输入什么：<input type="text" name="" value="">
-                <a href="#" id="close" class="close">x</a>
+
+                <div class="col">
+
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <a href="#" id="close" class="close">x</a>
+                        <h3 class="card-title">添加商品种类</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <!-- form start -->
+                      <form role="form">
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">商品种类名称</label>
+                            <input type="text" class="form-control" id="good_kind_name" placeholder="商品种类名称，客户看到的’">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">商品排序编号</label>
+                            <input type="text" class="form-control" id="good_kind_index" placeholder="默认为100，越小越前面">
+                          </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                          <button id="btn_good_kind" type="submit" class="btn btn-primary">提交</button>
+                          <button id="btn-close" type="submit" class="btn btn-danger">取消</button>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+
+
             </div>
             <div class="mask">
                 <!-- 弹窗的背景 -->
             </div>
         </div>
 
+
 {% endblock %}
 
 {% block footer_each_js %}
+<script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
 <script type="text/javascript">
 $("#addClass").click(function(){
-    alert("addClass clicked !");
+    // alert("addClass clicked !");
     $('.pop_con').fadeIn();
     return false; // 如果不写这句，由于时间冒泡的原理，这边会返回到下面的
                   // document绑定的事件，因此，他会把fadeIn()和fadeOut()一起执行，导致表单无法正常显示
 });
+
+$('#btn').click(function(){
+    // console.log('clicked');
+    // $('.pop_con').css({display: 'block'}); // 注意这个写法，第一个参数不需要引号
+    // $('.pop_con').show();
+    $('.pop_con').fadeIn();
+    return false; // 如果不写这句，由于时间冒泡的原理，这边会返回到下面的
+                  // document绑定的事件，因此，他会把fadeIn()和fadeOut()一起执行，导致表单无法正常显示
+})
+
+$(document).click(function(){
+    // $('.pop_con').fadeOut();
+})
+
+$('.pop').click(function(){
+    return false;  // 如果没有这样，如果点击表单，由于事件冒泡的原理，整个表单会消失
+})
+
+$('#close').click(function(){
+    $('.pop_con').fadeOut();
+})
+
+$("#btn-close").click(function(){
+    $('.pop_con').fadeOut();
+})
+
+$("#btn_good_kind").click(function(){
+    // console.log("btn_good_kind");
+    // alert("btn-submit");
+    // console.log("good_kind_name = ", $("#good_kind_name").val());
+    // console.log(getCookie("csrf_token"));
+    let good_kind_name = $("#good_kind_name").val();
+    let good_kind_index = $("#good_kind_index").val();
+    if(good_kind_name == ""){
+        alert("分类名称不能为空！")
+        return
+    }
+    // 将表单存入data中
+    var data = {
+        "kind_name": good_kind_name,
+        "kind_index": good_kind_index
+    };
+
+    // 将data转化为json
+    var jsonData = JSON.stringify(data);
+    $.ajax({
+        url:"/goods",
+        type: "post",
+        data: jsonData,
+        contentType: "application/json",
+        dataType: "json",
+        headers: {
+            "X-CSRFTOKEN": getCookie("csrf_token")
+        },
+        success: function(req){
+
+            if(req.resCode == 0){
+                location.href = "/goods"
+                // console.log("OK ! ! ", req.msg);
+            }else{
+                console.log("error:", req.msg)
+            }
+        }
+    });
+});
+
+function kind_id_delete(kind_id){
+    // console.log(kind_id);
+    if(kind_id==""){
+        alert("需要删除的kind_id = ", kind_id);
+    }
+    var data = {
+        "kind_id": kind_id
+    }
+    var jsonData = JSON.stringify(data);
+    $.ajax({
+        url: "/goods",
+        type: "delete",
+        data: jsonData,
+        contentType: "application/json",
+        dataType: "json",
+        headers: {
+            "X-CSRFTOKEN": getCookie("csrf_token")
+        },
+        success: function(resp){
+            // console.log(rep);
+            if(resp.resCode == 0){
+                location.href = "/goods"
+            }else{
+                alert(resp.msg)
+            }
+        }
+    });
+
+}
+
+function kind_id_change(kind_id, kind_name, kind_index){
+    // console.log(kind_id, kind_name, kind_index);
+    // alert("addClass clicked !");
+    $(".pop .col .card .card-header .card-title").text("修改商品种类信息");
+    $("#good_kind_name").val(kind_name);
+    $("#good_kind_index").val(kind_index);
+    $('#btn_good_kind').attr('onclick', 'change_kind('+ kind_id +')').unbind('click');
+    $('.pop_con').unbind().fadeIn();
+    return false;
+};
+
+function change_kind(kind_id){
+    var kind_name = $("#good_kind_name").val();
+    var kind_index = $("#good_kind_index").val();
+    // console.log(kind_name,">>>>>", kind_index);
+
+    var data = {
+        "id": kind_id,
+        "kind_name": kind_name,
+        "kind_index": kind_index
+    }
+    var jsonData = JSON.stringify(data);
+    $.ajax({
+        url:"/goods",
+        type: "put",
+        data: jsonData,
+        contentType: "application/json",
+        dataType: "json",
+        headers: {
+            "X-CSRFTOKEN": getCookie("csrf_token")
+        },
+        success: function (resp) {
+            if(resp.resCode == 0){
+                location.href = "/goods"
+            }else{
+                console.log(resp.msg)
+            }
+        }
+    });
+}
+
+
+function changeShowKind(){
+    console.log("触发了select事件 ：" ,$("#good_kind_option option:selected").val());
+    if($("#good_kind_option option:selected").val() == "all"){
+        location.href = "/goods";
+    }
+    $.ajax({
+        url: "/goods?k=" + $("#good_kind_option option:selected").val(),
+        type: "get",
+        contentType: "application/json",
+        dataType: "json",
+        headers: {
+            "X-CSRFTOKEN": getCookie("csrf_token")
+        },
+        success: function (resp) {
+            if(resp.resCode == 0){
+                console.log(resp.data)
+                console.log(resp.data.goods)
+                console.log(resp.data.kinds)
+                $("#goods_show").children().remove();
+
+                // console.log(resp.data[0])
+                // console.log(resp.data.length)
+                for(i=0;i<resp.data.goods.length;i++){
+                    var option_item = '';
+                    for(j=0;j<resp.data.kinds.length;j++){
+                        if(resp.data.goods[i].good_kind_id == resp.data.kinds[j].id){
+                            option_item += '<option selected="selected" value="'+resp.data.kinds[j].id+'"> '+resp.data.kinds[j].goods_kind_name+' </option>'
+                        }else{
+                            option_item += '<option value="'+resp.data.kinds[j].id+'"> '+resp.data.kinds[j].goods_kind_name+' </option>'
+                        }
+
+                    }
+                    console.log("option_item>>>>>",option_item);
+                    var tr_one = '<tr><td>'+resp.data.goods[i].good_name+'</td><td><select class="form-control">'+option_item+'</select></td><th>'+resp.data.goods[i].good_price+'</th><th>限时折扣、团购</th><td><button type="button" name="button" class="btn btn-warning" >删除</button><button type="button" name="button" class="btn btn-primary">修改</button><button type="button" name="button" class="btn btn-success">查看详情</button></td></tr>'
+                    $("#goods_show").append(tr_one);
+                    console.log("in for",resp.data.goods[i]);
+                }
+            }else{
+                console.log(resp.msg)
+            }
+        }
+    });
+};
+
+function add_goods(){
+    location.href = "/good"
+}
 
 </script>
 {% endblock %}

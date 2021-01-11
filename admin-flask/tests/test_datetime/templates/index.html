@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="jquery-ui.min.css") }}">
+          <script src="{{ url_for("static", filename="jquery.min.js") }}"></script>
+          <script src="{{ url_for("static", filename="jquery-ui.min.js") }}"></script>
+          <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+          <script src="{{ url_for("static", filename="js/moment.js") }}" charset="utf-8"></script>
+        <script>
+          $(function() {
+            $( "#datepicker" ).datepicker({
+                dateFormat: 'yy-mm-dd',
+                onSelect: function(dateText, inst) {
+                    var dateAsString = dateText; //the first parameter of this function
+                    var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+                    console.log(dateAsString);
+                    console.log(dateAsObject);
+                    $("#datepicker").val(dateAsString);
+                    console.log("$('#datepicker').val() =====", $('#datepicker').val());
+        	       }
+               });
+          });
+  </script>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <button type="button" name="button">{{ context.current_time }}</button>
+
+        <p>日期：<input type="text" id="datepicker"></p>
+
+    </body>
+</html>

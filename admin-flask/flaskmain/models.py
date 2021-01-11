@@ -60,6 +60,7 @@ class AdminUser(BaseModel, db.Model):
         """
         return check_password_hash(self.password_hash, passwd)
 
+
 # 公司信息表
 class CompanyInformation(BaseModel, db.Model):
     __tablename__ = 'ishop_company_infos'
@@ -77,6 +78,7 @@ class CompanyInformation(BaseModel, db.Model):
     # 七牛云图床信息
     qiniu_acess_key = db.Column(db.String(128), default='AlexHunter七牛云图床信息，必须去申请！')
     qiniu_secret_key = db.Column(db.String(128), default='AlexHunter七牛云图床信息，必须去申请！')
+
 
 # 用户信息表
 class UserInfo(BaseModel, db.Model):
@@ -117,6 +119,7 @@ class UserInfo(BaseModel, db.Model):
         """
         return check_password_hash(self.password_hash, passwd)
 
+
 # 用户地址表
 class Address(BaseModel, db.Model):
     __tablename__ = 'ishop_address_infos'
@@ -125,18 +128,37 @@ class Address(BaseModel, db.Model):
     is_primary_address = db.Column(db.Boolean, nullable=False, default=False)
     address = db.Column(db.String(256), nullable=False)
 
+
+# 活动表
+class Activaty(BaseModel, db.Model):
+    __tablename__ = 'ishop_activaties'
+    id = db.Column(db.Integer, primary_key=True)
+    activate_name = db.Column(db.String(32))
+    start_time = db.Column(db.DateTime, default=datetime.now)
+    close_time = db.Column(db.DateTime)
+    activate_desc = db.Column(db.String(256))
+    # 折扣力度
+    off_percent = db.Column(db.Integer)
+    # 发货时间
+    pakage_time = db.Column(db.DateTime)
+    # 是否处于激活状态
+    is_active = db.Column(db.Boolean, nullable=False, default=False)
+
+
 # 商品分类表
 class GoodsKinds(BaseModel, db.Model):
     __tablename__ = 'ishop_goods_kinds'
     id = db.Column(db.Integer, primary_key=True)
     goods_kind_name = db.Column(db.String(32), nullable=False, unique=True)
+    goods_kind_index = db.Column(db.Integer, nullable=False, default=100)
     goods_in_kind = db.relationship('Goods', backref='GoodsKinds', lazy='dynamic')
+
 
 # 商品表
 class Goods(BaseModel, db.Model):
     __tablename__ = 'ishop_goods'
     id = db.Column(db.Integer, primary_key=True)
-    good_kind = db.Column(db.Integer, db.ForeignKey('ishop_goods_kinds.id'))
+    good_kind_id = db.Column(db.Integer, db.ForeignKey('ishop_goods_kinds.id'))
     good_name = db.Column(db.String(256), nullable=False)
     good_price = db.Column(db.Float)
     good_desc = db.Column(db.Text)

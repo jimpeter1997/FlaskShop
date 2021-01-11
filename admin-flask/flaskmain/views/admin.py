@@ -57,14 +57,7 @@ def company():
 
 
 
-@admin_views.route('/activate')
-@login_required
-def activate():
-    # company = CompanyInformation.query.filter_by(id=1).first()
-    context = {
-        'title': "活动信息页面"
-    }
-    return render_template('/admin/activate.html', context=context)
+
 
 
 @admin_views.route('/adminuser')

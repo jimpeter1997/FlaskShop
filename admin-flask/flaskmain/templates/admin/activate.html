@@ -3,9 +3,156 @@
 {% block index_body %}
 
     <div class="row">
-        <div class="col">
-            <h1>这是活动信息页面</h1>
+        <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{{ context.title }}</h3>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><button class="btn btn-block btn-danger" id="addClass">添加活动</button></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>活动名称</th>
+                      <th>活动描述</th>
+                      <th>折扣力度(%)</th>
+                      <th>开始时间</th>
+                      <th>结束时间</th>
+                      <th>发货时间</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        {% for activaty in context.activaties %}
+                        <tr>
+                          <td id="show_name_{{activaty.id}}">{{ activaty.activate_name }}</td>
+                          <td id="show_desc_{{activaty.id}}">{{ activaty.activate_desc  }}</td>
+                          <td id="show_percent_{{activaty.id}}">{{ activaty.off_percent  }}</td>
+                          <td id="show_start_time_{{activaty.id}}">{{ activaty.start_time }}</td>
+                          <td id="show_close_time_{{activaty.id}}">{{ activaty.close_time }}</td>
+                          <td id="show_pagake_time_{{activaty.id}}">{{ activaty.pakage_time }}</td>
+
+                          <td>
+                              <div class="row">
+                                  <button id="delete_btn_{{ activaty.id }}" onclick="activaty_delete({{ activaty.id }})" type="button" name="button" class="btn btn-warning col-6">删除</button>
+                                  <button id="change_btn_{{ activaty.id }}" onclick="activaty_show_change({{activaty.id}})" type="button" name="button" class="btn btn-primary col-6">修改</button>
+                                  <button id="cancel_btn_{{ activaty.id }}" onclick="cancel_activaty({{ activaty.id }})" type="button" name="button" class="d-none">取消</button>
+                                  <button id="post_change_btn_{{ activaty.id }}" onclick="" type="button" name="button" class="d-none">提交</button>
+                              </div>
+                          </td>
+                        </tr>
+
+                        <!-- 测试代码开始
+                        <tr id="test_activaty_{{ activaty.id }}">
+                          <td><input id="test_activaty_name_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.activate_name }}"></td>
+                      <td><input id="test_activaty_desc_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.activate_desc  }}"></td>
+                          <td><input id="test_activaty_off_percent_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.off_percent  }}"></td>
+                          <td><input id="test_activaty_start_time_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.start_time }}"></td>
+                          <td><input id="test_activaty_close_time_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.close_time }}"></td>
+                          <td>
+                            <input style="width:100%" type="text" name="" value="{{ activaty.pakage_time }}">
+                          </td>
+                          <td>
+                              <div class="row">
+                                  <button onclick="test_activaty_delete({{ activaty.id }})" type="button" name="button" class="btn btn-warning col-6">提交</button>
+                                  <button onclick="test_activaty_show_change()" type="button" name="button" class="btn btn-primary col-6">取消   </button>
+                              </div>
+                          </td>
+                        </tr>
+                        测试代码结束 -->
+
+                        {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
         </div>
 
     </div>
+{% endblock %}
+{% block footer_each_js %}
+
+<script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
+<script type="text/javascript">
+    function activaty_show_change(id){
+        // alert(id);
+        // alert("activaty_show_change clicked !" + id);
+        var name = $("#show_name_"+id).text();
+        $("#show_name_"+id).html("").append("<input id='input_name_"+id+"'  style='width:100%' value="+ name +">");
+
+        var desc = $("#show_desc_"+id).text();
+        $("#show_desc_"+id).html("").append("<input id='input_desc_"+id+"' style='width:100%' value="+desc+">");
+        var percent = $("#show_percent_"+id).text();
+        $("#show_percent_"+id).html("").append("<input id='input_percent_"+id+"' style='width:100%' value="+percent+">");
+        var start_time = $("#show_start_time_"+id).text();
+        // alert(start_time)
+        $("#show_start_time_"+id).html("").append("<input id='input_start_time_"+id+"' style='width:100%' value="+start_time+">").ready(function(){
+            // console.log($(this).val());
+            // alert($(this).val());
+            // console.log($("#input_start_time_1").val());
+            // alert("input_start_time_1 = "+$("#input_start_time_1").val());
+            $("#input_start_time_"+id).datepicker({
+                dateFormat: "yy-mm-dd",
+                onSelect: function(dateText, inst) {
+                    // var dateAsString = dateText; //the first parameter of this function
+                    // var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+                    // console.log(dateAsString);
+                    // console.log(dateAsObject);
+                    $("#input_start_time_"+id).val(dateText + " 00:00:00");
+                    // console.log("$('#datepicker').val() =====", $('#datepicker').val());
+                }
+            });
+
+        });
+
+        $("#show_close_time_"+id).html("").append("<input id='input_close_time_"+id+"' style='width:100%' value="+start_time+">").ready(function(){
+            $("#input_close_time_"+id).datepicker({
+                dateFormat: "yy-mm-dd",
+                onSelect: function(dateText, inst) {
+                    $("#input_close_time_"+id).val(dateText + " 23:59:59");
+                }
+            });
+
+        });
+
+        $("#show_pagake_time_"+id).html("").append("<input id='input_pagake_time_"+id+"' style='width:100%' value="+start_time+">").ready(function(){
+            $("#input_pagake_time_"+id).datepicker({
+                dateFormat: "yy-mm-dd",
+                onSelect: function(dateText, inst) {
+                    $("#input_pagake_time_"+id).val(dateText + " 23:59:59");
+                }
+            });
+
+        });
+
+        $("#delete_btn_"+id).attr("class","d-none");
+        $("#change_btn_"+id).attr("class","d-none");
+        $("#cancel_btn_"+id).attr("class","btn btn-warning col-6");
+        $("#post_change_btn_"+id).attr("class", "btn btn-primary col-6");
+    }
+
+    function cancel_activaty(id){
+
+    }
+
+    // $("#test_activaty_start_time_1").datepicker({
+    //     dateFormat: "yy-mm-dd",
+    //     onSelect: function(dateText, inst) {
+    //         var dateAsString = dateText; //the first parameter of this function
+    //         var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+    //         console.log(dateAsString);
+    //         console.log(dateAsObject);
+    //         $("#test_activaty_start_time_1").val(dateText + " 59:59:59");
+    //         console.log("$('#datepicker').val() =====", $('#datepicker').val());
+    //     }
+    // });
+
+</script>
 {% endblock %}
