@@ -130,17 +130,17 @@ class Address(BaseModel, db.Model):
 
 
 # 活动表
-class Activaty(BaseModel, db.Model):
-    __tablename__ = 'ishop_activaties'
+class Activity(BaseModel, db.Model):
+    __tablename__ = 'ishop_activities'
     id = db.Column(db.Integer, primary_key=True)
-    activate_name = db.Column(db.String(32))
+    activity_name = db.Column(db.String(32))
     start_time = db.Column(db.DateTime, default=datetime.now)
     close_time = db.Column(db.DateTime)
-    activate_desc = db.Column(db.String(256))
+    activity_desc = db.Column(db.String(256))
     # 折扣力度
     off_percent = db.Column(db.Integer)
     # 发货时间
-    pakage_time = db.Column(db.DateTime)
+    package_time = db.Column(db.DateTime)
     # 是否处于激活状态
     is_active = db.Column(db.Boolean, nullable=False, default=False)
 

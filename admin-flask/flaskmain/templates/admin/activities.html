@@ -1,0 +1,200 @@
+{% extends 'base_index.html' %}
+
+{% block index_body %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{{ context.title }}</h3>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><button class="btn btn-block btn-danger" id="addActivaty">添加活动</button></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>活动名称</th>
+                      <th>活动描述</th>
+                      <th>折扣力度(%)</th>
+                      <th>开始时间</th>
+                      <th>结束时间</th>
+                      <th>发货时间</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        {% for activaty in context.activaties %}
+                        <tr>
+                          <td >
+                              <p id="show_name_{{activaty.id}}">{{ activaty.activate_name }}</p>
+                              <input id="input_name_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.activate_name }}">
+                          </td>
+                          <td >
+                              <p id="show_desc_{{activaty.id}}">{{ activaty.activate_desc  }}</p>
+                              <input id="input_desc_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.activate_desc  }}">
+                          </td>
+                          <td >
+                              <p id="show_percent_{{activaty.id}}">{{ activaty.off_percent  }}</p>
+                              <input id="input_percent_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.off_percent  }}">
+                          </td>
+                          <td >
+                              <p id="show_start_time_{{activaty.id}}">{{ activaty.start_time }}</p>
+                              <input id="input_start_time_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.start_time }}">
+                          </td>
+                          <td >
+                              <p id="show_close_time_{{activaty.id}}">{{ activaty.close_time }}</p>
+                              <input id="input_close_time_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.close_time }}">
+                          </td>
+                          <td >
+                              <p id="show_package_time_{{activaty.id}}">{{ activaty.pakage_time }}</p>
+                              <input id="input_package_time_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.pakage_time }}">
+                          </td>
+
+                          <td>
+                              <div class="row">
+                                  <button id="delete_btn_{{ activaty.id }}" onclick="activaty_delete({{ activaty.id }})" type="button" name="button" class="btn btn-warning col-6">删除</button>
+                                  <button id="change_btn_{{ activaty.id }}" onclick="change_btn_click({{activaty.id}})" type="button" name="button" class="btn btn-primary col-6">修改</button>
+                                  <button id="cancel_btn_{{ activaty.id }}" onclick="cancel_activaty({{ activaty.id }})" type="button" name="button" class="d-none">取消</button>
+                                  <button id="post_change_btn_{{ activaty.id }}" onclick="put_activaty_change({{ activaty.id }})" type="button" name="button" class="d-none">提交</button>
+                              </div>
+                          </td>
+                        </tr>
+
+                        <!-- 测试代码开始
+                        <tr id="test_activaty_{{ activaty.id }}">
+                          <td><input id="test_activaty_name_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.activate_name }}"></td>
+                      <td><input id="test_activaty_desc_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.activate_desc  }}"></td>
+                          <td><input id="test_activaty_off_percent_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.off_percent  }}"></td>
+                          <td><input id="test_activaty_start_time_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.start_time }}"></td>
+                          <td><input id="test_activaty_close_time_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.close_time }}"></td>
+                          <td>
+                            <input style="width:100%" type="text" name="" value="{{ activaty.pakage_time }}">
+                          </td>
+                          <td>
+                              <div class="row">
+                                  <button onclick="test_activaty_delete({{ activaty.id }})" type="button" name="button" class="btn btn-warning col-6">提交</button>
+                                  <button onclick="test_activaty_show_change()" type="button" name="button" class="btn btn-primary col-6">取消   </button>
+                              </div>
+                          </td>
+                        </tr>
+                        测试代码结束 -->
+
+                        {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block footer_each_js %}
+<script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
+<script type="text/javascript">
+    $("#addActivaty").click(function(){
+        alert("alert clicked");
+        
+    });
+
+    function activaty_delete(id){
+        // 判断id是否为空
+        if(id == ""){
+            alert("参数不完整");
+            return ;
+        }
+        // 创建要提交的数据
+        var postData = JSON.stringify({
+            "delete_activaty_id":id
+        });
+
+        $.ajax({
+            url: "/activate",
+            type: "delete",
+            data: postData,
+            contentType: "application/json",
+            dataType: "json",
+            headers: {
+                "X-CSRFTOKEN": getCookie("csrf_token")
+            },
+            success: function(resp){
+                if(resp.resCode == 0){
+                    console.log(resp.msg);
+                }else{
+                    console.log(resp.msg);
+                }
+            }
+        });
+    };
+
+    function change_btn_click(id){
+        $("#show_name_"+id).attr("class","d-none");
+        $("#show_desc_"+id).attr("class","d-none");
+        $("#show_percent_"+id).attr("class","d-none");
+        $("#show_start_time_"+id).attr("class","d-none");
+        $("#show_close_time_"+id).attr("class","d-none");
+        $("#show_package_time_"+id).attr("class","d-none");
+
+        $("#input_name_"+id).attr("class","col-12");
+        $("#input_desc_"+id).attr("class","col-12");
+        $("#input_percent_"+id).attr("class","");
+        $("#input_start_time_"+id).attr("class","").datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(dateText, inst) {
+                $("#input_start_time_"+id).val(dateText + " 00:00:00");
+            }
+        });
+        $("#input_close_time_"+id).attr("class","").datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(dateText, inst) {
+                $("#input_close_time_"+id).val(dateText + " 23:59:59");
+            }
+        });
+        $("#input_package_time_"+id).attr("class","").datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(dateText, inst) {
+                $("#input_package_time_"+id).val(dateText + " 23:59:59");
+            }
+        });
+
+        $("#delete_btn_"+id).attr("class", "d-none");
+        $("#change_btn_"+id).attr("class", "d-none");
+        $("#cancel_btn_"+id).attr("class", "btn btn-warning col-6");
+        $("#post_change_btn_"+id).attr("class", "btn btn-primary col-6")
+    }
+
+    function cancel_activaty(id){
+        $("#show_name_"+id).attr("class","");
+        $("#show_desc_"+id).attr("class","");
+        $("#show_percent_"+id).attr("class","");
+        $("#show_start_time_"+id).attr("class","");
+        $("#show_close_time_"+id).attr("class","");
+        $("#show_package_time_"+id).attr("class","");
+
+        $("#input_name_"+id).attr("class","d-none");
+        $("#input_desc_"+id).attr("class","d-none");
+        $("#input_percent_"+id).attr("class","d-none");
+        $("#input_start_time_"+id).attr("class","d-none");
+        $("#input_close_time_"+id).attr("class","d-none");
+        $("#input_package_time_"+id).attr("class","d-none");
+
+        $("#delete_btn_"+id).attr("class", "btn btn-warning col-6");
+        $("#change_btn_"+id).attr("class", "btn btn-primary col-6");
+        $("#cancel_btn_"+id).attr("class", "d-none");
+        $("#post_change_btn_"+id).attr("class", "d-none")
+    }
+
+    function put_activaty_change(id){
+        // put方法提交
+    }
+</script>
+{% endblock %}

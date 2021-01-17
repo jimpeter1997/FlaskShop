@@ -27,7 +27,7 @@ def goods():
         #     goods_kind_index = 100
 
         if is_string_validate(goods_kind_name):
-            return jsonify(error=1, msg="商品分类不能包含特殊字母")
+            return jsonify(resCode=1, msg="商品分类不能包含特殊字母")
 
         print(goods_kind_index, "----", goods_kind_name)
 
