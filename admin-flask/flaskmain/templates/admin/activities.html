@@ -9,7 +9,7 @@
                 <h3 class="card-title">{{ context.title }}</h3>
                 <div class="card-footer clearfix">
                   <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><button class="btn btn-block btn-danger" id="addActivaty">添加活动</button></li>
+                    <li class="page-item"><button class="btn btn-block btn-danger" id="addactivity">添加活动</button></li>
                   </ul>
                 </div>
               </div>
@@ -29,57 +29,57 @@
                     </tr>
                   </thead>
                   <tbody>
-                        {% for activaty in context.activaties %}
+                        {% for activity in context.activities %}
                         <tr>
                           <td >
-                              <p id="show_name_{{activaty.id}}">{{ activaty.activate_name }}</p>
-                              <input id="input_name_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.activate_name }}">
+                              <p id="show_name_{{activity.id}}">{{ activity.activity_name }}</p>
+                              <input id="input_name_{{ activity.id }}" class="d-none" style="width:100%" type="text" name="" value="{{ activity.activity_name }}">
                           </td>
                           <td >
-                              <p id="show_desc_{{activaty.id}}">{{ activaty.activate_desc  }}</p>
-                              <input id="input_desc_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.activate_desc  }}">
+                              <p id="show_desc_{{activity.id}}">{{ activity.activity_desc  }}</p>
+                              <input id="input_desc_{{ activity.id }}" class="d-none" style="width:100%" type="text" name="" value="{{ activity.activity_desc  }}">
                           </td>
                           <td >
-                              <p id="show_percent_{{activaty.id}}">{{ activaty.off_percent  }}</p>
-                              <input id="input_percent_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.off_percent  }}">
+                              <p id="show_percent_{{activity.id}}">{{ activity.off_percent  }}</p>
+                              <input id="input_percent_{{ activity.id }}" class="d-none" style="width:100%" type="text" name="" value="{{ activity.off_percent  }}">
                           </td>
                           <td >
-                              <p id="show_start_time_{{activaty.id}}">{{ activaty.start_time }}</p>
-                              <input id="input_start_time_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.start_time }}">
+                              <p id="show_start_time_{{activity.id}}">{{ activity.start_time }}</p>
+                              <input id="input_start_time_{{ activity.id }}" class="d-none" style="width:100%" type="text" name="" value="{{ activity.start_time }}">
                           </td>
                           <td >
-                              <p id="show_close_time_{{activaty.id}}">{{ activaty.close_time }}</p>
-                              <input id="input_close_time_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.close_time }}">
+                              <p id="show_close_time_{{activity.id}}">{{ activity.close_time }}</p>
+                              <input id="input_close_time_{{ activity.id }}" class="d-none" style="width:100%" type="text" name="" value="{{ activity.close_time }}">
                           </td>
                           <td >
-                              <p id="show_package_time_{{activaty.id}}">{{ activaty.pakage_time }}</p>
-                              <input id="input_package_time_{{ activaty.id }}" class="d-none" type="text" name="" value="{{ activaty.pakage_time }}">
+                              <p id="show_package_time_{{activity.id}}">{{ activity.package_time }}</p>
+                              <input id="input_package_time_{{ activity.id }}" class="d-none"  type="text" name="" value="{{ activity.package_time }}">
                           </td>
 
                           <td>
                               <div class="row">
-                                  <button id="delete_btn_{{ activaty.id }}" onclick="activaty_delete({{ activaty.id }})" type="button" name="button" class="btn btn-warning col-6">删除</button>
-                                  <button id="change_btn_{{ activaty.id }}" onclick="change_btn_click({{activaty.id}})" type="button" name="button" class="btn btn-primary col-6">修改</button>
-                                  <button id="cancel_btn_{{ activaty.id }}" onclick="cancel_activaty({{ activaty.id }})" type="button" name="button" class="d-none">取消</button>
-                                  <button id="post_change_btn_{{ activaty.id }}" onclick="put_activaty_change({{ activaty.id }})" type="button" name="button" class="d-none">提交</button>
+                                  <button id="delete_btn_{{ activity.id }}" onclick="activity_delete({{ activity.id }})" type="button" name="button" class="btn btn-warning col-6">删除</button>
+                                  <button id="change_btn_{{ activity.id }}" onclick="change_btn_click({{activity.id}})" type="button" name="button" class="btn btn-primary col-6">修改</button>
+                                  <button id="cancel_btn_{{ activity.id }}" onclick="cancel_activity({{ activity.id }})" type="button" name="button" class="d-none">取消</button>
+                                  <button id="post_change_btn_{{ activity.id }}" onclick="put_activity_change({{ activity.id }})" type="button" name="button" class="d-none">提交</button>
                               </div>
                           </td>
                         </tr>
 
                         <!-- 测试代码开始
-                        <tr id="test_activaty_{{ activaty.id }}">
-                          <td><input id="test_activaty_name_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.activate_name }}"></td>
-                      <td><input id="test_activaty_desc_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.activate_desc  }}"></td>
-                          <td><input id="test_activaty_off_percent_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.off_percent  }}"></td>
-                          <td><input id="test_activaty_start_time_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.start_time }}"></td>
-                          <td><input id="test_activaty_close_time_{{ activaty.id }}" style="width:100%" type="text" name="" value="{{ activaty.close_time }}"></td>
+                        <tr id="test_activity_{{ activity.id }}">
+                          <td><input id="test_activity_name_{{ activity.id }}" style="width:100%" type="text" name="" value="{{ activity.activity_name }}"></td>
+                      <td><input id="test_activity_desc_{{ activity.id }}" style="width:100%" type="text" name="" value="{{ activity.activity_desc  }}"></td>
+                          <td><input id="test_activity_off_percent_{{ activity.id }}" style="width:100%" type="text" name="" value="{{ activity.off_percent  }}"></td>
+                          <td><input id="test_activity_start_time_{{ activity.id }}" style="width:100%" type="text" name="" value="{{ activity.start_time }}"></td>
+                          <td><input id="test_activity_close_time_{{ activity.id }}" style="width:100%" type="text" name="" value="{{ activity.close_time }}"></td>
                           <td>
-                            <input style="width:100%" type="text" name="" value="{{ activaty.pakage_time }}">
+                            <input style="width:100%" type="text" name="" value="{{ activity.package_time }}">
                           </td>
                           <td>
                               <div class="row">
-                                  <button onclick="test_activaty_delete({{ activaty.id }})" type="button" name="button" class="btn btn-warning col-6">提交</button>
-                                  <button onclick="test_activaty_show_change()" type="button" name="button" class="btn btn-primary col-6">取消   </button>
+                                  <button onclick="test_activity_delete({{ activity.id }})" type="button" name="button" class="btn btn-warning col-6">提交</button>
+                                  <button onclick="test_activity_show_change()" type="button" name="button" class="btn btn-primary col-6">取消   </button>
                               </div>
                           </td>
                         </tr>
@@ -101,12 +101,12 @@
 {% block footer_each_js %}
 <script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
 <script type="text/javascript">
-    $("#addActivaty").click(function(){
-        alert("alert clicked");
-        
+    $("#addactivity").click(function(){
+        // alert("alert clicked");
+        location.href = "/add/activity";
     });
 
-    function activaty_delete(id){
+    function activity_delete(id){
         // 判断id是否为空
         if(id == ""){
             alert("参数不完整");
@@ -114,11 +114,11 @@
         }
         // 创建要提交的数据
         var postData = JSON.stringify({
-            "delete_activaty_id":id
+            "delete_activity_id":id
         });
 
         $.ajax({
-            url: "/activate",
+            url: "/activity",
             type: "delete",
             data: postData,
             contentType: "application/json",
@@ -172,7 +172,7 @@
         $("#post_change_btn_"+id).attr("class", "btn btn-primary col-6")
     }
 
-    function cancel_activaty(id){
+    function cancel_activity(id){
         $("#show_name_"+id).attr("class","");
         $("#show_desc_"+id).attr("class","");
         $("#show_percent_"+id).attr("class","");
@@ -193,7 +193,7 @@
         $("#post_change_btn_"+id).attr("class", "d-none")
     }
 
-    function put_activaty_change(id){
+    function put_activity_change(id){
         // put方法提交
     }
 </script>

@@ -1,4 +1,5 @@
 .flask-admin
+.admin
 .idea
 __pycache__
 migrations/*

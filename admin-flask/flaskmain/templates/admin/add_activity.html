@@ -1,0 +1,226 @@
+{% extends 'base_index.html' %}
+{% block index_body %}
+<!--
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">添加活动</h3>
+
+                 <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="inputName">活动名称</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">活动描述</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">折扣力度(%)</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">开始时间</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">结束时间</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">发货时间</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">参与数量</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <div class="col-2 offset-10">
+                              <button type="button" class="btn btn-primary" name="button">确定</button>
+                              <button type="button" class="btn btn-danger " name="button">取消</button>
+                          </div>
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+</div>
+-->
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">添加活动</h3>
+
+                 <!-- <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>` -->
+                </div>
+                <div class="card-body">
+
+                    <form class="" action="{{ url_for('views.activity') }}" method="post">
+                        {{ form.csrf_token }}
+                        <div class="form-group">
+                          <!-- <label for="inputName">活动名称</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.activity_name.label }}
+                          {{ form.activity_name(class='form-control') }}
+                          {% for error in form.activity_name.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">活动描述</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.desc.label }}
+                          {{ form.desc(class='form-control') }}
+                          {% for error in form.desc.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">折扣力度(%)</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.off_percent.label }}
+                          {{ form.off_percent(class='form-control') }}
+                          {% for error in form.off_percent.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">开始时间</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.start_time.label }}
+                          {{ form.start_time(class='form-control') }}
+                          {% for error in form.start_time.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">结束时间</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.close_time.label }}
+                          {{ form.close_time(class='form-control') }}
+                          {% for error in form.close_time.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">发货时间</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.package_time.label }}
+                          {{ form.package_time(class='form-control') }}
+                          {% for error in form.package_time.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">参与数量</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.count.label }}
+                          {{ form.count(class='form-control') }}
+                          {% for error in form.count.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <!-- <label for="inputName">是否激活</label> -->
+                          <!-- <input type="text" id="inputName" class="form-control"> -->
+                          {{ form.is_active.label }}
+                          {{ form.is_active(class='form-control') }}
+                          {% for error in form.is_active.errors %}
+                            {{ error }}
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 offset-10">
+                                    <!-- <button type="button" class="btn btn-primary" name="button">确定</button> -->
+                                    {{ form.submit(class='btn btn-primary') }}
+                                    <button type="button" class="btn btn-danger " name="button">取消</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- <div >
+                        下面要备注掉
+                    </div>
+
+                  <div class="form-group">
+                    <label for="inputName">活动名称</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">活动描述</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">折扣力度(%)</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">开始时间</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">结束时间</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">发货时间</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName">参与数量</label>
+                    <input type="text" id="inputName" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <div class="col-2 offset-10">
+                              <button type="button" class="btn btn-primary" name="button">确定</button>
+                              <button type="button" class="btn btn-danger " name="button">取消</button>
+                          </div>
+
+                      </div>
+                  </div> -->
+                </div>
+                <!-- /.card-body -->
+              </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block footer_each_js %}
+<script type="text/javascript">
+
+$("#start_time").datepicker({
+    dateFormat: "yy-mm-dd",
+    onSelect: function(dateText, inst) {
+        $("#start_time").val(dateText + " 00:00:00");
+    }
+});
+
+</script>
+{% endblock %}

@@ -1,8 +1,9 @@
 from . import admin_views
 from flaskmain.utils.common import login_required
-from flask import render_template, request, jsonify, current_app
+from flask import render_template, request, jsonify, current_app, flash
 from flaskmain.models import Activity
 from flaskmain import db
+from flaskmain.forms import ActivityForm
 
 
 # 增删改查
@@ -54,12 +55,36 @@ def activities():
 
     context = {
         'title': "活动信息页面",
-        'activaties': ac_list
+        'activities': ac_list
     }
     return render_template('/admin/activities.html', context=context)
 
 
-@admin_views.route('/acivity', methods=["GET", "POST"])
+@admin_views.route('/add/activity', methods=["GET", "POST"])
 @login_required
 def activity():
-    pass
+    form = ActivityForm()
+
+    context = {
+        'title': "添加活动信息页面"
+    }
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            print("form.validate_on_submit() = ", form.validate_on_submit())
+        # flash("测试flash！")
+        # flash('message')
+        # for me in form.data:
+        #     print(me)
+        # print("form.start_time.message = ", form.start_time.message)
+        print("form.validate_on_submit() = ", form.validate_on_submit())
+        print("form.activity_name.data = ", form.activity_name.data)
+        print("form.start_time.data = ", form.start_time.data)
+        print("form.close_time.data = ", form.close_time.data)
+        print("form.desc.data = ", form.desc.data)
+        print("form.off_percent.data = ", form.off_percent.data)
+        print("form.package_time.data = ", form.package_time.data)
+        print("form.is_active.data = ", form.is_active.data)
+        print("form.count.data = ", form.count.data)
+        print("POST")
+        return render_template('/admin/add_activity.html',context=context, form=form)
+    return render_template('/admin/add_activity.html',context=context, form=form)
