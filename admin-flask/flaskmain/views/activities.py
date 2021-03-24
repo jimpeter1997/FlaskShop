@@ -88,3 +88,13 @@ def activity():
         print("POST")
         return render_template('/admin/add_activity.html',context=context, form=form)
     return render_template('/admin/add_activity.html',context=context, form=form)
+
+
+@admin_views.route('/add/new/activity', methods=["GET", "POST"])
+@login_required
+def new_activity():
+    form = ActivityForm()
+    context = {
+        'title': "不用wtforms添加活动信息页面"
+    }
+    return render_template('/admin/add_activity_without_wtforms.html', context=context)
