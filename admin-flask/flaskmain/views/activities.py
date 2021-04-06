@@ -40,6 +40,7 @@ def activities():
     # 修改活动
     if request.method == "PUT":
         print("PUT")
+        # put_data = 
         return jsonify(resCode=0, msg="修改成功")
     # 添加活动
     if request.method == "POST":

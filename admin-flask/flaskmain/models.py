@@ -28,6 +28,31 @@ class BaseModel(object):
 #     user_id = db.Column(db.Integer, db.ForeignKey('test_user_out.id'))  # 一对多关系中，这个一中使用ForeignKey，并填写表名.id
 #     user_address = db.Column(db.String(120), nullable=False)
 
+
+
+
+# # 多对多关系
+# class Article(db.Model):
+#     __tablename__ = 'article'
+#     id = db.Column(db.Integer,primary_key = True,autoincrement= True)
+#     title = db.Column(db.String(100),nullable = False)
+#     #让Article和Tag产生关联
+#     #因为Article和Tag表中间还有一个article_tag表,所以添加secondary
+#     #假如拿到了一个标签Tag,怎么拿到标签下的所有文章呢.反向引用Article这时用backref
+#     tags = db.relationship('Tag',secondary= article_tag,backref = db.backref('articles'))
+#
+# class Tag(db.Model):
+#     __tablename__ = 'tag'
+#     id = db.Column(db.Integer,primary_key = True,autoincrement= True)
+#     name = db.Column(db.String(100),nullable = True)
+#
+# article_tag = db.Table('article_tag',
+#     db.Column('article_id',db.Integer,db.ForeignKey('article.id'),primary_key=True),
+#     db.Column('tag_id',db.Integer,db.ForeignKey('tag.id'),primary_key=True)
+#         )
+
+
+
 # 后台管理员表
 class AdminUser(BaseModel, db.Model):
     __tablename__ = 'ishop_admin_user'
@@ -128,6 +153,11 @@ class Address(BaseModel, db.Model):
     is_primary_address = db.Column(db.Boolean, nullable=False, default=False)
     address = db.Column(db.String(256), nullable=False)
 
+goods_activities = db.Table(
+    'goods_activities',
+    db.Column('good_id', db.Integer, db.ForeignKey('ishop_activities.id'), primary_key=True),
+    db.Column('activity_id', db.Integer, db.ForeignKey('ishop_goods.id'), primary_key=True)
+)
 
 # 活动表
 class Activity(BaseModel, db.Model):
@@ -143,6 +173,7 @@ class Activity(BaseModel, db.Model):
     package_time = db.Column(db.DateTime)
     # 是否处于激活状态
     is_active = db.Column(db.Boolean, nullable=False, default=False)
+
 
 
 # 商品分类表
@@ -162,3 +193,7 @@ class Goods(BaseModel, db.Model):
     good_name = db.Column(db.String(256), nullable=False)
     good_price = db.Column(db.Float)
     good_desc = db.Column(db.Text)
+    #让Article和Tag产生关联
+    #因为Article和Tag表中间还有一个article_tag表,所以添加secondary
+    #假如拿到了一个标签Tag,怎么拿到标签下的所有文章呢.反向引用Article这时用backref
+    activities = db.relationship('Goods', secondary=goods_activities, backref=db.backref('Goods'))
