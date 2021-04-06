@@ -73,16 +73,24 @@
                     <form class="" action="{{ url_for('views.activity') }}" method="post">
                         <div class="form-group">
                           <label for="inputName">活动名称</label>
-                          <input type="text" id="inputName" class="form-control">
+                          <input type="text" id="activity_name" class="form-control">
                         </div>
                         <div class="form-group">
                           <label for="inputName">活动描述</label>
-                          <input type="text" id="inputName" class="form-control">
+                          <input type="text" id="activity_desc" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                           <label for="inputName">折扣力度(%)</label>
                           <input type="text" id="inputName" class="form-control">
-                        </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label>折扣力度(%)</label>
+                            <select class="custom-select" id="off_percent" onclick="showSelectValue()">
+                              {% for i in range(1,101) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
                         <div class="form-group">
                           <label for="inputName">开始时间</label>
                           <input type="text" class="form-control" id="start_time">
@@ -90,7 +98,7 @@
                         <div class="form-group">
                           <label for="inputName">结束时间</label>
                           <div class="input-group date">
-                                <input type="text" class="form-control" id="reservationdate_test">
+                                <input type="text" class="form-control" id="close_time">
                                 <!-- <div class="input-group-append" data-target="#reservationdate_test" data-toggle="daterangepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div> -->
@@ -113,26 +121,21 @@
                                         </div> -->
                         </div>
                         <div class="form-group">
-                          <label for="inputName">参与数量</label>
-                          <input type="text" id="inputName" class="form-control">
-
-                        </div>
-                        <div class="form-group">
-                          <label for="inputName">是否激活</label>
-                          <input type="text" id="inputName" class="form-control">
-
-                        </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="is_active">
+                              <label for="inputName">是否激活</label>
+                            </div>
+                          </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-2 offset-10">
-                                    <button type="button" class="btn btn-primary" name="button">确定</button>
+                                    <button type="button" class="btn btn-primary" name="button" onclick="post_new_activity()">确定</button>
 
                                     <button type="button" class="btn btn-danger " name="button">取消</button>
                                 </div>
 
                             </div>
                         </div>
-
                     </form>
                     <!-- <div >
                         下面要备注掉
@@ -191,6 +194,7 @@
 
 
 {% block footer_each_js %}
+<script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
 <script type="text/javascript">
 
 // $("#reservationdate").datetimepicker({
@@ -225,7 +229,7 @@ $('#package_time').daterangepicker({
     }
 });
 
-$('#reservationdate_test').daterangepicker({
+$('#close_time').daterangepicker({
     singleDatePicker: true,
     locale: {
         format: 'YYYY-MM-DD 23:59:59',
@@ -242,6 +246,152 @@ $('#reservationdate_test').daterangepicker({
     }
 
 });
+
+// function showSelectValue(){
+//     alert($('#off_percent').val());
+//     console.log($('#off_percent').val());
+// };
+
+//  判断是否有特殊字符
+
+function RegeMatch(){
+    var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+    if($("#name").val() != "" && $("#name").val() != null){
+        if(pattern.test($("#name").val())){
+            alert("非法字符！");
+            $("#name").attr("value","");
+            $("#name").focus();
+            return false;
+        }
+    }
+}
+
+// activity_name
+// start_time
+// close_time
+// activity_desc
+// off_percent
+// package_time
+// is_active
+// count
+
+function is_correct_re(testd_string, pattern){
+    if(testd_string == "" || testd_string == null){
+        return true;
+    }else if(!pattern.test(testd_string)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+function is_correct_string(testd_string, pattern){
+    if(testd_string == "" || testd_string == null){
+        return true;
+    }else if(pattern.test(testd_string)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+function post_new_activity(){
+    var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+
+    // alert("post_new_activity !");
+
+    // alert($('#activity_name').val());
+    // alert(pattern);
+
+    if(is_correct_string($('#activity_name').val(), pattern)){
+        // alert("活动名称不能为空，也不能包含特殊字符 ！ ")
+        return false
+    }
+
+    alert($('#activity_desc').val());
+    if(is_correct_string($('#activity_desc').val(), pattern)){
+        // alert("活动描述不能为空，也不能包含特殊字符 ！");
+        return false;
+    }
+
+    var startTimeForm = /^[0-9]{4}-[0-1]?[0-9]{1}-[0-3]?[0-9]{1} 00:00:00$/;
+    alert($('#start_time').val());
+    if(is_correct_re($('#start_time').val(), startTimeForm)){
+        // alert("活动开始时间不正确");
+        return false;
+    }
+
+    alert($('#close_time').val());
+    var endTimeForm = /^[0-9]{4}-[0-1]?[0-9]{1}-[0-3]?[0-9]{1} 23:59:59$/;
+    if(is_correct_re($('#close_time').val(), endTimeForm)){
+        // alert("活动结束时间不正确");
+        return false;
+    }
+
+    alert($('#package_time').val());
+    if(is_correct_re($('#package_time').val(), endTimeForm)){
+        // alert("最后发货的时间不正确 ！");
+        return false;
+    }
+
+    alert($('#off_percent').val());
+    var reNumber=/^(?:[1-9]?\d|100)$/;
+    if(is_correct_re($('#off_percent').val(), reNumber)){
+        // alert("输入的折扣不正确");
+        return false
+    }
+
+
+
+    // alert($('#is_active').is(":checked"));
+
+    var activity_name = $("#activity_name").val();
+    var start_time = $("#start_time").val();
+    var close_time = $("#close_time").val();
+    var activity_desc = $("#activity_desc").val();
+    var off_percent = $("#off_percent").val();
+    var package_time = $("#package_time").val();
+    var is_active = $("#is_active").is(":checked");
+
+    // 将表单存入data中
+    var data = {
+        "activity_name": activity_name,
+        "start_time": start_time,
+        "close_time": close_time,
+        "activity_desc": activity_desc,
+        "off_percent": off_percent,
+        "package_time": package_time,
+        "is_active": is_active
+    };
+
+    // 将data转化为json
+    var jsonData = JSON.stringify(data);
+    $.ajax({
+        url:"/add/new/activity",
+        type: "post",
+        data: jsonData,
+        contentType: "application/json",
+        dataType: "json",
+        headers: {
+            "X-CSRFTOKEN": getCookie("csrf_token")
+        },
+        success: function(req){
+            alert("状态码：" + req.resCode);
+            alert("信息：" + req.msg);
+            // console.log(req.msg);
+            if(req.resCode == 0){
+                location.href = "/activities"
+                // console.log("OK ! ! ", req.msg);
+            }else{
+                alert("error:" + req.msg)
+            }
+        }
+    });
+
+
+}
 
 </script>
 {% endblock %}

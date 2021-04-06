@@ -141,6 +141,7 @@ def goods():
 @admin_views.route('/good', methods=["GET"])
 @login_required
 def good():
+    # if request.method == ""
     goods_kinds = GoodsKinds.query.all()
     context = {
         'title': "商品信息页面",

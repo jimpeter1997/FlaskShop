@@ -4,7 +4,8 @@ from flask import render_template, request, jsonify, current_app, flash
 from flaskmain.models import Activity
 from flaskmain import db
 from flaskmain.forms import ActivityForm
-
+from flaskmain.utils.common import is_string_validate
+from datetime import datetime
 
 # 增删改查
 # post、delete、put、get
@@ -38,7 +39,8 @@ def activities():
         return jsonify(resCode=0, msg="删除成功")
     # 修改活动
     if request.method == "PUT":
-        pass
+        print("PUT")
+        return jsonify(resCode=0, msg="修改成功")
     # 添加活动
     if request.method == "POST":
         pass
@@ -93,6 +95,62 @@ def activity():
 @admin_views.route('/add/new/activity', methods=["GET", "POST"])
 @login_required
 def new_activity():
+    if request.method == "POST":
+        post_data = request.get_json()
+        print("request.method = POST : ", request.get_json())
+        # activity_name
+        # start_time
+        # close_time
+        # activity_desc
+        # off_percent
+        # package_time
+        # is_active
+        activity_name = post_data.get("activity_name")
+        start_time = post_data.get("start_time")
+        close_time = post_data.get("close_time")
+        activity_desc = post_data.get("activity_desc")
+        off_percent = post_data.get("off_percent")
+        package_time = post_data.get("package_time")
+        is_active = post_data.get("is_active")
+        # print("activity_name = ", activity_name)
+        # print("start_time = ", type(start_time))
+        # print("close_time = ", close_time)
+        # print("off_percent = ", off_percent)
+        # print("package_time = ", package_time)
+        # print("is_active = ", type(is_active))
+        # print("count = ", type(count))
+        # print("activity_desc = ", activity_desc)
+        if not all([activity_name, start_time, close_time, activity_desc, off_percent, package_time, is_active]):
+            # 判断数据是否为空
+            return jsonify(resCode=1, msg="数据不完整")
+
+        if is_string_validate(activity_name) or is_string_validate(activity_desc):
+            return jsonify(resCode=1, msg="活动名称和活动描述不能包含特殊字符")
+
+        ac = Activity()
+        ac.activity_name = activity_name
+        ac.activity_desc = activity_desc
+        try:
+            ac.start_time = datetime.strptime(start_time, "%Y-%m-%d %H:%M:%S")
+            ac.close_time = datetime.strptime(close_time, "%Y-%m-%d %H:%M:%S")
+            ac.package_time = datetime.strptime(package_time, "%Y-%m-%d %H:%M:%S")
+        except Exception as e:
+            current_app.logger.error(e)
+            return jsonify(resCode=1, msg="时间格式不正确，或者时间错误")
+
+        if ac.start_time < ac.close_time and ac.close_time <= ac.package_time:
+            # 判断时间是否正确
+            return jsonify(resCode=1, msg="发货时间要大于活动截至时间，活动截至时间要大于活动开始时间")
+
+        if not isinstance(is_active, bool):
+            return jsonify(resCode=1, msg="输入是否激活数据错误")
+        ac.is_active = is_active
+        if int(off_percent) >= 100 and int(off_percent) > 0:
+            return jsonify(resCode=1, msg="输入的折扣不正确")
+        ac.off_percent = int(off_percent)
+        db.session.add(ac)
+        db.session.commit()
+        return jsonify(resCode=0, msg="提交成功")
     form = ActivityForm()
     context = {
         'title': "不用wtforms添加活动信息页面"

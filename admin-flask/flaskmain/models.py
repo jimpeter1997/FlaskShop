@@ -143,7 +143,6 @@ class Activity(BaseModel, db.Model):
     package_time = db.Column(db.DateTime)
     # 是否处于激活状态
     is_active = db.Column(db.Boolean, nullable=False, default=False)
-    count = db.Column(db.Integer, nullable=False, default=10)
 
 
 # 商品分类表
