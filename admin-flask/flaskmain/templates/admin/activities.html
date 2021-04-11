@@ -25,6 +25,7 @@
                       <th>开始时间</th>
                       <th>结束时间</th>
                       <th>发货时间</th>
+                      <th>是否激活</th>
                       <th>操作</th>
                     </tr>
                   </thead>
@@ -54,6 +55,14 @@
                           <td >
                               <p id="show_package_time_{{activity.id}}">{{ activity.package_time }}</p>
                               <input id="input_package_time_{{ activity.id }}" class="d-none"  type="text" name="" value="{{ activity.package_time }}">
+                          </td>
+                          <td>
+                              <p id="is_active_{{ activity.id }}" class="">{% if activity.is_active  %}是{% else %}否{% endif %}</p>
+                              <!-- <div class="form-check"> -->
+                              <div id="checkbox_{{ activity.id }}" class="d-none">
+                                <input class="form-check-input" type="checkbox" id="is_active_value_{{ activity.id }}">
+                                <label for="inputName">是否激活</label>
+                              </div>
                           </td>
 
                           <td>
@@ -143,28 +152,120 @@
         $("#show_start_time_"+id).attr("class","d-none");
         $("#show_close_time_"+id).attr("class","d-none");
         $("#show_package_time_"+id).attr("class","d-none");
+        $("#is_active_"+id).attr("class", "d-none");
 
+        $("#checkbox_"+id).attr("class", "form-check");
         $("#input_name_"+id).attr("class","col-12");
         $("#input_desc_"+id).attr("class","col-12");
         $("#input_percent_"+id).attr("class","");
-        $("#input_start_time_"+id).attr("class","").datepicker({
-            dateFormat: "yy-mm-dd",
-            onSelect: function(dateText, inst) {
-                $("#input_start_time_"+id).val(dateText + " 00:00:00");
+        // $("#input_start_time_"+id).attr("class","").datepicker({
+        //     dateFormat: "yy-mm-dd",
+        //     onSelect: function(dateText, inst) {
+        //         $("#input_start_time_"+id).val(dateText + " 00:00:00");
+        //     }
+        // });
+        // $("#input_close_time_"+id).attr("class","").datepicker({
+        //     dateFormat: "yy-mm-dd",
+        //     onSelect: function(dateText, inst) {
+        //         $("#input_close_time_"+id).val(dateText + " 23:59:59");
+        //     }
+        // });
+        // $("#input_package_time_"+id).attr("class","").datepicker({
+        //     dateFormat: "yy-mm-dd",
+        //     onSelect: function(dateText, inst) {
+        //         $("#input_package_time_"+id).val(dateText + " 23:59:59");
+        //     }
+        // });
+        $("#input_start_time_"+id).attr("class","").daterangepicker({
+            singleDatePicker: true,
+            locale: {
+                format: 'YYYY-MM-DD 00:00:00',
+                daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                    '七月', '八月', '九月', '十月', '十一月', '十二月'
+                ],
+                firstDay: 1
             }
         });
-        $("#input_close_time_"+id).attr("class","").datepicker({
-            dateFormat: "yy-mm-dd",
-            onSelect: function(dateText, inst) {
-                $("#input_close_time_"+id).val(dateText + " 23:59:59");
+
+        $("#input_close_time_"+id).attr("class","").daterangepicker({
+            singleDatePicker: true,
+            locale: {
+                format: 'YYYY-MM-DD 23:59:59',
+                // applyLabel: '确定',
+                // cancelLabel: '取消',
+                // fromLabel: '起始时间',
+                // toLabel: '结束时间',
+                // customRangeLabel: '手动选择',
+                daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                    '七月', '八月', '九月', '十月', '十一月', '十二月'
+                ],
+                firstDay: 1
             }
+
         });
-        $("#input_package_time_"+id).attr("class","").datepicker({
-            dateFormat: "yy-mm-dd",
-            onSelect: function(dateText, inst) {
-                $("#input_package_time_"+id).val(dateText + " 23:59:59");
+
+        $("#input_package_time_"+id).attr("class","").daterangepicker({
+            singleDatePicker: true,
+            locale: {
+                format: 'YYYY-MM-DD 23:59:59',
+                // applyLabel: '确定',
+                // cancelLabel: '取消',
+                // fromLabel: '起始时间',
+                // toLabel: '结束时间',
+                // customRangeLabel: '手动选择',
+                daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                    '七月', '八月', '九月', '十月', '十一月', '十二月'
+                ],
+                firstDay: 1
             }
+
         });
+
+        // $('#start_time').daterangepicker({
+        //     singleDatePicker: true,
+        //     locale: {
+        //         format: 'YYYY-MM-DD 00:00:00',
+        //         daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+        //         monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+        //             '七月', '八月', '九月', '十月', '十一月', '十二月'
+        //         ],
+        //         firstDay: 1
+        //     }
+        // });
+        //
+        //
+        // $('#package_time').daterangepicker({
+        //     singleDatePicker: true,
+        //     locale: {
+        //         format: 'YYYY-MM-DD 23:59:59',
+        //         daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+        //         monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+        //             '七月', '八月', '九月', '十月', '十一月', '十二月'
+        //         ],
+        //         firstDay: 1
+        //     }
+        // });
+        //
+        // $('#close_time').daterangepicker({
+        //     singleDatePicker: true,
+        //     locale: {
+        //         format: 'YYYY-MM-DD 23:59:59',
+        //         // applyLabel: '确定',
+        //         // cancelLabel: '取消',
+        //         // fromLabel: '起始时间',
+        //         // toLabel: '结束时间',
+        //         // customRangeLabel: '手动选择',
+        //         daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+        //         monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+        //             '七月', '八月', '九月', '十月', '十一月', '十二月'
+        //         ],
+        //         firstDay: 1
+        //     }
+        //
+        // });
 
         $("#delete_btn_"+id).attr("class", "d-none");
         $("#change_btn_"+id).attr("class", "d-none");
@@ -179,6 +280,7 @@
         $("#show_start_time_"+id).attr("class","");
         $("#show_close_time_"+id).attr("class","");
         $("#show_package_time_"+id).attr("class","");
+        $("#is_active_"+id).attr("class", "");
 
         $("#input_name_"+id).attr("class","d-none");
         $("#input_desc_"+id).attr("class","d-none");
@@ -186,6 +288,8 @@
         $("#input_start_time_"+id).attr("class","d-none");
         $("#input_close_time_"+id).attr("class","d-none");
         $("#input_package_time_"+id).attr("class","d-none");
+        // $("#select_is_active_"+id).attr("class", "d-none");
+        $("#checkbox_"+id).attr("class", "d-none");
 
         $("#delete_btn_"+id).attr("class", "btn btn-warning col-6");
         $("#change_btn_"+id).attr("class", "btn btn-primary col-6");
@@ -193,8 +297,105 @@
         $("#post_change_btn_"+id).attr("class", "d-none")
     }
 
+    // class Activity(BaseModel, db.Model):
+    //     __tablename__ = 'ishop_activities'
+    //     id = db.Column(db.Integer, primary_key=True)
+    //     activity_name = db.Column(db.String(32))
+    //     start_time = db.Column(db.DateTime, default=datetime.now)
+    //     close_time = db.Column(db.DateTime)
+    //     activity_desc = db.Column(db.String(256))
+    //     # 折扣力度
+    //     off_percent = db.Column(db.Integer)
+    //     # 发货时间
+    //     package_time = db.Column(db.DateTime)
+    //     # 是否处于激活状态
+    //     is_active = db.Column(db.Boolean, nullable=False, default=False)
+
     function put_activity_change(id){
+        alert("id = "+id)
         // put方法提交
+        // 获取数据
+        var activity_name = $("#input_name_"+id).val();
+        alert("activity_name = "+activity_name);
+        var start_time = $("#input_start_time_"+id).val();
+        alert("start_time = "+start_time);
+        var close_time = $("#input_close_time_"+id).val();
+        alert("close_time = "+close_time);
+        var activity_desc = $("#input_desc_"+id).val();
+        alert("activity_desc = "+activity_desc);
+        var off_percent = $("#input_percent_"+id).val();
+        alert("off_percent = "+off_percent);
+        var package_time = $("#input_package_time_"+id).val();
+        alert("package_time = "+package_time);
+        var is_active = $("#is_active_value_"+id).is(":checked");
+        // var is_active = $("#is_active").is(":checked");
+        alert("is_active = "+is_active);
+
+        // 验证数据
+        var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+        if(is_correct_string(activity_name, pattern) || is_correct_string(activity_desc, pattern)){
+            alert("活动名称和活动描述都不能为空，也不能包含特殊字符 ！ ")
+            return false
+        }
+
+        var startTimeForm = /^[0-9]{4}-[0-1]?[0-9]{1}-[0-3]?[0-9]{1} 00:00:00$/;
+        if(is_correct_re(start_time, startTimeForm)){
+            alert("活动结束时间不正确");
+            return false;
+        }
+
+        var endTimeForm = /^[0-9]{4}-[0-1]?[0-9]{1}-[0-3]?[0-9]{1} 23:59:59$/;
+        if(is_correct_re(close_time, endTimeForm) || is_correct_re(package_time, endTimeForm)){
+            alert("活动结束时间不正确");
+            return false;
+        }
+        var reNumber=/^(?:[1-9]?\d|100)$/;
+        if(is_correct_re(off_percent, reNumber)){
+            alert("输入的折扣不正确");
+            return false
+        }
+        alert("正式发起ajax请求 ！！ ！");
+        if(typeof is_active != "boolean"){
+            alert("是否激活数据有误！")
+            return false;
+        }
+        alert("正式发起ajax请求 ！！");
+        // ajax提交数据
+        // 将表单存入data中
+        var data = {
+            "id": id,
+            "activity_name": activity_name,
+            "start_time": start_time,
+            "close_time": close_time,
+            "activity_desc": activity_desc,
+            "off_percent": off_percent,
+            "package_time": package_time,
+            "is_active": is_active
+        };
+
+        // 将data转化为json
+        var jsonData = JSON.stringify(data);
+        // 正式发起ajax请求
+        alert("正式发起ajax请求 ！");
+        $.ajax({
+            url: "/activities",
+            type: "put",
+            data: jsonData,
+            contentType: "application/json",
+            dataType: "json",
+            headers: {
+                "X-CSRFTOKEN": getCookie("csrf_token")
+            },
+            success: function(resp){
+                if(resp.resCode == 0){
+                    // 提交正确
+                    location.href = "/activities"
+                }else{
+                    // 提交错误
+                    alert(resp.msg);
+                }
+            }
+        });
     }
 </script>
 {% endblock %}
