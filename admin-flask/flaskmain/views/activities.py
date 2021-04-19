@@ -23,7 +23,7 @@ def activities():
             # 判断id是否为空
             return jsonify(resCode=1, msg="id不能为空")
         try:
-            activity = activity.query.filter_by(id=int(delete_activity_id)).first()
+            activity = Activity.query.filter_by(id=int(delete_activity_id)).first()
         except Exception as e:
             current_app.logger.error(e)
             return jsonify(resCode=1, msg="数据库错误，联系管理员处理")
@@ -32,8 +32,8 @@ def activities():
             return jsonify(resCode=1, msg="id错误，删除无效")
 
         # 删除该活动
-        # db.delete(activity)
-        # db.commit()
+        db.session.delete(activity)
+        db.session.commit()
 
         print("其实删除已经成功了")
         return jsonify(resCode=0, msg="删除成功")

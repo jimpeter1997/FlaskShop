@@ -9,7 +9,7 @@
                 <h3 class="card-title">{{ context.title }}</h3>
                 <div class="card-footer clearfix">
                   <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><button class="btn btn-block btn-danger" id="addactivity">添加活动</button></li>
+                    <li class="page-item"><a href="{{ url_for('views.new_activity') }}"><button class="btn btn-block btn-danger">添加活动</button></a></li>
                   </ul>
                 </div>
               </div>
@@ -109,11 +109,8 @@
 
 {% block footer_each_js %}
 <script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
+
 <script type="text/javascript">
-    $("#addactivity").click(function(){
-        // alert("alert clicked");
-        location.href = "/add/activity";
-    });
 
     function activity_delete(id){
         // 判断id是否为空
@@ -127,7 +124,7 @@
         });
 
         $.ajax({
-            url: "/activity",
+            url: "/activities",
             type: "delete",
             data: postData,
             contentType: "application/json",
@@ -137,9 +134,11 @@
             },
             success: function(resp){
                 if(resp.resCode == 0){
-                    console.log(resp.msg);
+
+                    location.href = "/activities"
                 }else{
-                    console.log(resp.msg);
+                    // console.log(resp.msg);
+                    alert(resp.msg);
                 }
             }
         });
@@ -397,5 +396,6 @@
             }
         });
     }
+
 </script>
 {% endblock %}
