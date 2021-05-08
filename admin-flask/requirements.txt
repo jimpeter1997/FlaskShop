@@ -16,6 +16,7 @@ Jinja2==2.11.2
 Mako==1.1.3
 MarkupSafe==1.1.1
 Pillow==7.2.0
+py3Fdfs==2.2.0
 PyMySQL==0.10.1
 python-dateutil==2.8.1
 python-editor==1.0.4

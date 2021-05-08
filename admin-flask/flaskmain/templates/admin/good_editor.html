@@ -1,15 +1,19 @@
 {% extends 'base_index.html' %}
+
+{% block header_each_css %}
+<link href="{{ url_for('static', filename="Content/bootstrap-fileinput/css/fileinput.min.css") }}" rel="stylesheet" />
+{% endblock %}
+
 {% block index_body %}
-<div class="row">
-    <div class="col-md-12">
+<div class="row card card-primary">
+    <form role="form" id="uploadForm">
+    <div class="card-body col-md-12">
+
         <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">添加商品</h3>
 
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                      <i class="fas fa-minus"></i></button>
-                  </div>
+
                 </div>
                 <div class="card-body">
                   <div class="form-group">
@@ -23,11 +27,34 @@
                   <div class="form-group">
                     <label for="inputStatus">商品分类</label>
                     <select class="form-control custom-select">
-                      <option selected="" disabled="">Select one</option>
-                      <option>On Hold</option>
+                      <option selected="" disabled="">选择一个商品分类</option>
+                      <!-- <option>On Hold</option>
                       <option>Canceled</option>
-                      <option>Success</option>
+                      <option>Success</option> -->
+                      {% for kind in context.goods_kinds %}
+                      <option>{{ kind.goods_kind_name }}</option>
+                      {% endfor %}
                     </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">商品主图</label>
+                        <div class="custom-file">
+                      <!-- <input type="file" class="custom-file-input" id="">
+                      <label class="custom-file-label" for="">选择一个图片</label> -->
+                      <input type="file" class="custom-file-input" id="good_main_pic" aria-describedby="inputGroupFileAddon04">
+                      <label class="custom-file-label" for="inputGroupFile04">选择商品主图</label>
+                    </div>
+                      <!-- <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+
+                        <input type="file" id="myFile" name="myFile" />
+                        <input type="text" id="myText" name="myText" />
+                        <input type="submit" />
+
+                      </div> -->
+                      <!-- <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div> -->
                   </div>
                   <div class="form-group">
                     <label for="inputClientCompany">商品价格</label>
@@ -37,58 +64,122 @@
                     <label for="inputProjectLeader">商品活动</label>
 
                         <div class="row">
-                            {% for good_kind in context.goods_kinds %}
-                            <div class="form-check col-3">
-                              <input class="form-check-input col-2" type="checkbox">
-                              <label class="form-check-label col-10">{{ good_kind.goods_kind_name }}</label>
+                            {% for activity in context.activities %}
+                            <div class="form-check mr-3">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label" id="activity_{{ activity.id }}">{{ activity.activity_name }}</label>
                             </div>
                             {% endfor %}
-                            <!-- <div class="form-check col-3">
-                              <input class="form-check-input col-2" type="checkbox" checked="">
-                              <label class="form-check-label col-10">Checkbox checked</label>
-                            </div> -->
-                            <!-- <div class="form-check col-3">
-                              <input class="form-check-input col-2" type="checkbox" disabled="">
-                              <label class="form-check-label col-10">Checkbox disabled</label>
+                            <!-- <div class="form-check mr-3">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">测试活动2</label>
+                            </div>
+                            <div class="form-check mr-3">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">测试活动3</label>
+                            </div>
+                            <div class="form-check mr-3">
+                              <input class="form-check-input" type="checkbox">
+                              <label class="form-check-label">测试活动4</label>
                             </div> -->
                         </div>
 
                   </div>
+                  <div class="form-group">
+                      <!-- <div class="card card-outline card-info"> -->
+                        <label for="inputProjectLeader">商品的详细描述</label>
+                        <!-- /.card-header -->
+                        <!-- <div class="card-body ">
+                          <div class=""> -->
+                            <!-- <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 1000px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea> -->
+                            {{ ckeditor.create() }}
+                          <!-- </div>
+                          <p class="text-sm mb-0">
+                            Editor <a href="https://github.com/summernote/summernote">Documentation and license
+                            information.</a>
+                          </p>
+                        </div> -->
+                      <!-- </div> -->
+                      <!-- {{ ckeditor.load() }}
+                      {{ ckeditor.config() }}  <!-- 这时不用设置name参数 --> -->
+                  </div>
                 </div>
                 <!-- /.card-body -->
               </div>
-    </div>
-</div>
-<div class="row">
-        <div class="col-md-12">
-          <div class="card card-outline card-info">
-            <div class="card-header">
-              <h3 class="card-title">
-                商品详情
-                <!-- <small>Simple and fast</small> -->
-              </h3>
-              <!-- tools box -->
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool btn-sm" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                  <i class="fas fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body pad">
-              <div class="mb-3">
-                <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
 
-              </div>
-              <p class="text-sm mb-0">
-                Editor <a href="https://github.com/summernote/summernote">Documentation and license
-                information.</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-->
-      </div>
+
+
+    </div>
+    <div class="card-footer">
+                  <button type="submit" class="btn btn-primary" onclick="post_good()">提交商品</button>
+                </div>
+    </form>
+
+</div>
+
+{% endblock %}
+{% block footer_each_js %}
+<script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+<script src="{{ url_for('static', filename="plugins/bs-custom-file-input/bs-custom-file-input.min.js") }}"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
+<script type="text/javascript">
+    // good_kind_id = db.Column(db.Integer, db.ForeignKey('ishop_goods_kinds.id'))
+    // good_name = db.Column(db.String(256), nullable=False)
+    // good_price = db.Column(db.Float)
+    // good_desc = db.Column(db.Text)
+    // good_main_pic = db.Column(db.String(256), nullable=False)
+    // #让Article和Tag产生关联
+    // #因为Article和Tag表中间还有一个article_tag表,所以添加secondary
+    // #假如拿到了一个标签Tag,怎么拿到标签下的所有文章呢.反向引用Article这时用backref
+    // activities = db.relationship('Goods', secondary=goods_activities, backref=db.backref('Goods'))
+function post_good(){
+    // $("#good_name")
+    // $("#good_desc")
+    // $("#good_kind_id")
+    // $("#good_main_pic")
+    // $("#good_price")
+    // $("#activities")
+    //
+    // $("#good_details")
+    // 判断图片是否为空
+    if($("#good_main_pic").val() == ''){
+        return
+    }
+    var formData = new FormData() //创建一个forData
+    formData.append('good_main_pic', $('#good_main_pic')[0].files[0]); //把file添加进去  name命名为img
+    formData.append("test_json", "I love you !");
+    formData.append("ckeditor", CKEDITOR.instances.ckeditor.getData());
+    // var dataPost = {
+    //     "good_main_pic": $('#good_main_pic')[0].files[0],
+    //     "test_json": "I love you !"
+    // }
+    // var jsonData = JSON.stringify(formData);
+    alert("开始提交0");
+    $.ajax({
+        url: '{{ url_for('views.add_good') }}',
+        type: 'post',
+        data: formData,
+        // contentType: 'multipart/form-data',
+        dataType: 'json',
+        contentType: false, //不设置内容类型
+        processData: false, //不处理数据
+        headers: {
+            "X-CSRFTOKEN": getCookie("csrf_token")
+        },
+        success: function(re){
+            if(re.resCode == 0){
+                alert("成功!")
+            }else{
+                alert("失败!")
+            }
+        }
+    });
+    alert("开始提交2");
+}
+</script>
 {% endblock %}

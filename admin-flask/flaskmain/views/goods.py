@@ -1,7 +1,7 @@
 from . import  admin_views
 from flaskmain.utils.common import login_required, is_string_validate
-from flask import render_template, request, jsonify, current_app
-from flaskmain.models import GoodsKinds, Goods
+from flask import render_template, request, jsonify, current_app, redirect, url_for
+from flaskmain.models import GoodsKinds, Goods, Activity
 from flaskmain import db
 
 
@@ -138,13 +138,31 @@ def goods():
 
 
 
-@admin_views.route('/good', methods=["GET"])
+@admin_views.route('/add/good', methods=["GET", "POST"])
 @login_required
-def good():
+def add_good():
     # if request.method == ""
     goods_kinds = GoodsKinds.query.all()
+    activities = Activity.query.all()
     context = {
         'title': "商品信息页面",
-        "goods_kinds": goods_kinds
+        "goods_kinds": goods_kinds,
+        "activities": activities
     }
+    if request.method == "POST":
+        print("request.method  POST request.get_json() = ", request.get_json())
+        print("request = ", request)
+        print("request.files = ", request.files)
+        print("type(request.files) = ", type(request.files))
+        # file = request.files.get('good_main_pic')
+        file = request.files['good_main_pic']
+        print("file = ", file)
+        print("type(file) = ", type(file))
+        print(request.args.to_dict())
+        print("request.get_data() = ", request.get_data())
+        print("request.data = ", request.data)
+        print("request.form = ", request.form.to_dict())
+        print("dir(request) = ", dir(request))
+        # return jsonify(resCode=0, msg="上传成功")
+        # return redirect(url_for('views.add_good'))
     return render_template('/admin/good_editor.html', context=context)

@@ -154,7 +154,7 @@
                     </div>
                     <div class="col-2">
                         <ul class="pagination pagination-sm m-0 float-right">
-                          <li class="page-item"><button onclick="add_goods()" class="btn btn-block btn-danger">添加商品</button></li>
+                          <li class="page-item"><a href="{{ url_for('views.add_good') }}"><button class="btn btn-block btn-danger">添加商品</button></a></li>
                         </ul>
                     </div>
                 </div>
@@ -400,9 +400,7 @@ function changeShowKind(){
     });
 };
 
-function add_goods(){
-    location.href = "/good"
-}
+
 
 </script>
 {% endblock %}

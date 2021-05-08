@@ -6,6 +6,7 @@ import pymysql
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_wtf import CSRFProtect
+from flask_ckeditor import CKEditor
 import logging
 from logging.handlers import  RotatingFileHandler  # 设置保存文件位置等信息
 import redis  # 主要是用来保存验证码的
@@ -54,6 +55,8 @@ def create_app(config_name):
     Session(app)
     # 利用flask-wtf， 为flask提供scrf_token保护
     CSRFProtect(app)
+    #
+    CKEditor(app)
     from flaskmain import views
     # 利用flask-login，来管理用户登录情况
     # global login_manager

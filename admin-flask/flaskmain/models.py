@@ -193,6 +193,7 @@ class Goods(BaseModel, db.Model):
     good_name = db.Column(db.String(256), nullable=False)
     good_price = db.Column(db.Float)
     good_desc = db.Column(db.Text)
+    good_main_pic = db.Column(db.String(256), nullable=False)
     #让Article和Tag产生关联
     #因为Article和Tag表中间还有一个article_tag表,所以添加secondary
     #假如拿到了一个标签Tag,怎么拿到标签下的所有文章呢.反向引用Article这时用backref
