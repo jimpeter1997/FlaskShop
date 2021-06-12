@@ -18,21 +18,21 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="inputName">商品名字</label>
-                    <input type="text" id="inputName" class="form-control">
+                    <input type="text" id="good_name" class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="inputDescription">商品简介</label>
-                    <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                    <textarea id="good_desc" class="form-control" rows="4"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="inputStatus">商品分类</label>
-                    <select class="form-control custom-select">
-                      <option selected="" disabled="">选择一个商品分类</option>
+                    <select class="form-control custom-select" id="good_kind_id">
+                      <option selected=""  disabled="">选择一个商品分类</option>
                       <!-- <option>On Hold</option>
                       <option>Canceled</option>
                       <option>Success</option> -->
                       {% for kind in context.goods_kinds %}
-                      <option>{{ kind.goods_kind_name }}</option>
+                      <option value="{{ kind.id }}">{{ kind.goods_kind_name }}</option>
                       {% endfor %}
                     </select>
                   </div>
@@ -58,7 +58,7 @@
                   </div>
                   <div class="form-group">
                     <label for="inputClientCompany">商品价格</label>
-                    <input type="text" id="inputClientCompany" class="form-control">
+                    <input type="text" id="good_price" class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="inputProjectLeader">商品活动</label>
@@ -66,8 +66,8 @@
                         <div class="row">
                             {% for activity in context.activities %}
                             <div class="form-check mr-3">
-                              <input class="form-check-input" type="checkbox">
-                              <label class="form-check-label" id="activity_{{ activity.id }}">{{ activity.activity_name }}</label>
+                              <input class="form-check-input" id="activity_{{ activity.id }}" type="checkbox">
+                              <label class="form-check-label" >{{ activity.activity_name }}</label>
                             </div>
                             {% endfor %}
                             <!-- <div class="form-check mr-3">
@@ -144,26 +144,48 @@ function post_good(){
     // $("#good_main_pic")
     // $("#good_price")
     // $("#activities")
-    //
+
+
     // $("#good_details")
     // 判断图片是否为空
     if($("#good_main_pic").val() == ''){
         return
     }
-    var formData = new FormData() //创建一个forData
-    formData.append('good_main_pic', $('#good_main_pic')[0].files[0]); //把file添加进去  name命名为img
-    formData.append("test_json", "I love you !");
-    formData.append("ckeditor", CKEDITOR.instances.ckeditor.getData());
-    // var dataPost = {
+    var data_post = new FormData() //创建一个forData
+    data_post.append('good_name', $("#good_name").val());
+    data_post.append('good_desc', $("#good_desc").val());
+    data_post.append('good_kind_id', $("#good_kind_id option:selected").val());
+    data_post.append('good_main_pic', $('#good_main_pic')[0].files[0]); //把file添加进去  name命名为img
+
+    data_post.append('good_price', $("#good_price").val());
+    var activities = new Array();
+
+
+    // formData.append("activity_1", false);
+    {% for activity in context.activities %}
+        // $("#activity_{{ activity.id }}").is(":checked"); // 获取值
+        // 测试是否合法
+
+        // 把数据放入formData
+        // data_post.append("activity_{{ activity.id }}", $("#activity_{{ activity.id }}").is(":checked"));
+        if($("#activity_{{ activity.id }}").is(":checked") == true){
+            activities.push({{ activity.id }})
+        }
+
+    {% endfor %}
+    data_post.append('activities', activities);
+    // data_post.append("ckeditor", CKEDITOR.instances.ckeditor.getData());
+    // var formData = {
     //     "good_main_pic": $('#good_main_pic')[0].files[0],
-    //     "test_json": "I love you !"
+    //     "test_json": "I love you !",
+    //     "ckeditor": CKEDITOR.instances.ckeditor.getData()
     // }
     // var jsonData = JSON.stringify(formData);
     alert("开始提交0");
     $.ajax({
         url: '{{ url_for('views.add_good') }}',
         type: 'post',
-        data: formData,
+        data: data_post,
         // contentType: 'multipart/form-data',
         dataType: 'json',
         contentType: false, //不设置内容类型
@@ -174,8 +196,9 @@ function post_good(){
         success: function(re){
             if(re.resCode == 0){
                 alert("成功!")
+                location.href = "{{ url_for('views.goods') }}"
             }else{
-                alert("失败!")
+                alert(re.msg)
             }
         }
     });

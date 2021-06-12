@@ -166,7 +166,7 @@ class Activity(BaseModel, db.Model):
     activity_name = db.Column(db.String(32))
     start_time = db.Column(db.DateTime, default=datetime.now)
     close_time = db.Column(db.DateTime)
-    activity_desc = db.Column(db.String(256))
+    activity_desc = db.Column(db.Text)
     # 折扣力度
     off_percent = db.Column(db.Integer)
     # 发货时间
@@ -189,6 +189,7 @@ class GoodsKinds(BaseModel, db.Model):
 class Goods(BaseModel, db.Model):
     __tablename__ = 'ishop_goods'
     id = db.Column(db.Integer, primary_key=True)
+    # good_kind_id 是一对多的关系
     good_kind_id = db.Column(db.Integer, db.ForeignKey('ishop_goods_kinds.id'))
     good_name = db.Column(db.String(256), nullable=False)
     good_price = db.Column(db.Float)

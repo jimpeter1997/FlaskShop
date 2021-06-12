@@ -46,6 +46,16 @@ class DevelopmentConfig(Config):
     """开发模式的配置信息"""
     DEBUG = True
 
+    IS_FDFS = True
+    FDFS_CONF = {
+        'host_tuple': ('192.168.56.56',),
+        'port': 22122,
+        'timeout': 20,
+        'name': 'Tracker Pool'
+    }
+
+    ALLOWED_FILENAMES = ['jpg', 'jepg', 'png', 'gif']
+
 
 class ProductionConfig(Config):
     """生成环境配置信息"""

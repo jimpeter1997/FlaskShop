@@ -44,6 +44,12 @@ def login_required(view_func):
     return wrapper
 
 
+# 字符串转化成boolean类型
+def str_to_bool_else_return_none(str):
+    if str not in ['true', 'false']:
+        return None
+    return True if str.lower() == 'true' else False
+
 """
 @login_required
 def set_user_avatar():
